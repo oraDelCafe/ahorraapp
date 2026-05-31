@@ -1,6 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Basic;
@@ -69,15 +70,18 @@ public class Transferencia implements Serializable {
     }
 
     public Transferencia(
-            Date fechaTrans, TipoTransferencia tipoTrans,
+            LocalDate fechaTrans, TipoTransferencia tipoTrans,
             Double cantidadTrans, String conceptoTrans,
-            String codigoTransaccion) {
-        this.fechaTrans = fechaTrans;
+            String codigoTransaccion,CuentaApp codCuentasTrans) {
+        this.fechaTrans = java.sql.Date.valueOf(fechaTrans);
         this.tipoTrans = tipoTrans;
         this.cantidadTrans = cantidadTrans;
         this.conceptoTrans = conceptoTrans;
         this.codigoTransaccion = codigoTransaccion;
+        this.codCuentasTrans = codCuentasTrans;
     }
+
+    
 
     public Integer getCodTransferencia() {
         return codTransferencia;
@@ -86,13 +90,15 @@ public class Transferencia implements Serializable {
     public void setCodTransferencia(Integer codTransferencia) {
         this.codTransferencia = codTransferencia;
     }
-
+    /**
+     * Este devuelve Date no LocalDate 
+     */
     public Date getFechaTrans() {
         return fechaTrans;
     }
 
-    public void setFechaTrans(Date fechaTrans) {
-        this.fechaTrans = fechaTrans;
+    public void setFechaTrans(LocalDate fechaTrans) {
+        this.fechaTrans = java.sql.Date.valueOf(fechaTrans);;
     }
 
     public TipoTransferencia getTipoTrans() {

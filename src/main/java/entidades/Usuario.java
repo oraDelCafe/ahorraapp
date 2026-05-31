@@ -76,6 +76,7 @@ public class Usuario implements Serializable {
         this.codUsuarios = codUsuarios;
     }
 
+    
     public Usuario(
             String nombreUsu, String ape1Usu, String ape2Usu,
             String emailUsu, String dniUsu, String dirUsu,

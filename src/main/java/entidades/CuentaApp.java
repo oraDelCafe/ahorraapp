@@ -1,6 +1,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,7 +40,7 @@ public class CuentaApp implements Serializable {
     private Double saldoCuentas;
 
     @Column(name = "FechaCuenta")
-    private LocalDate fechaCuenta;
+    private Date fechaCuenta;
 
     @Column(name = "CuentaBancoExterna")
     private String cuentaBancoExterna;
@@ -62,13 +63,29 @@ public class CuentaApp implements Serializable {
     }
 
     public CuentaApp(
+            Usuario codUsuariosCuentasapp,
+            Double saldoCuentas,
+            LocalDate fechaCuenta,
+            String cuentaBancoExterna) {
+
+        this.saldoCuentas = saldoCuentas;
+        this.fechaCuenta = Date.valueOf(fechaCuenta);
+        this.cuentaBancoExterna = cuentaBancoExterna;
+        this.codUsuariosCuentasapp = codUsuariosCuentasapp;
+
+        this.transferenciaCollection = new ArrayList<>();
+        this.detalleObjetivoProgramadoCollection = new ArrayList<>();
+    }
+
+    public CuentaApp(
             Integer codCuentasApp,
             Double saldoCuentas,
             LocalDate fechaCuenta,
             String cuentaBancoExterna) {
+
         this.codCuentasApp = codCuentasApp;
         this.saldoCuentas = saldoCuentas;
-        this.fechaCuenta = fechaCuenta;
+        this.fechaCuenta = Date.valueOf(fechaCuenta);
         this.cuentaBancoExterna = cuentaBancoExterna;
 
         this.transferenciaCollection = new ArrayList<>();
@@ -91,11 +108,15 @@ public class CuentaApp implements Serializable {
         this.saldoCuentas = saldoCuentas;
     }
 
-    public LocalDate getFechaCuenta() {
+    /**
+     * devuelve Date no LocalDate
+     * 
+     */
+    public Date getFechaCuenta() {
         return fechaCuenta;
     }
 
-    public void setFechaCuenta(LocalDate fechaCuenta) {
+    public void setFechaCuenta(Date fechaCuenta) {
         this.fechaCuenta = fechaCuenta;
     }
 
