@@ -1,4 +1,4 @@
-package daw;
+package vistas;
 
 import servicios.ServicioCuentaApp;
 import servicios.ServicioDetalleObjetivoProgramado;
@@ -13,7 +13,6 @@ public class Main {
 
         try {
 
-            
               //Borramos en orden por las FK
              
             ServicioDetalleObjetivoProgramado.borrarTodosDetallesObjetivoProgramado();
@@ -22,7 +21,6 @@ public class Main {
             ServicioCuentaApp.borrarTodasCuentasApp();
             ServicioUsuario.borrarTodosUsuarios();
 
-            
             // Insertamos datos de prueba
             
             ServicioUsuario.insertarUsuariosEjemplo();
@@ -35,7 +33,6 @@ public class Main {
 
             ServicioDetalleObjetivoProgramado.insertarDetallesObjetivoProgramadoEjemplo();
 
-            
             // Mostramos datos
             
             System.out.println(" USUARIOS ");

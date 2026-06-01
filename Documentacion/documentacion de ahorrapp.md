@@ -5,7 +5,7 @@ ahorrappVico se ha hizó en windows.
 Puede que al leerlo en linux de problemas 
 esta es la base de datos
 */
-/*
+
 /* crear base de datos 
 drop database ahorrappVico;
 */ 

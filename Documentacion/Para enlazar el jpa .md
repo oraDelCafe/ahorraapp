@@ -25,10 +25,9 @@ percistence.xml
   </persistence-unit>
 </persistence>
 
-
 */
 /*
-casa
+clase
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
   <persistence-unit name="ahorrappVico" transaction-type="RESOURCE_LOCAL">
@@ -47,9 +46,6 @@ casa
     </properties>
   </persistence-unit>
 </persistence>
-
-
-
 
 */
 -->
