@@ -1,13 +1,12 @@
 package servicios;
 
-import controladores.TransferenciaController;
-import entidades.CuentaApp;
-import entidades.Transferencia;
-import entidades.TipoTransferencia;
-
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import controladores.TransferenciaController;
+import entidades.CuentaApp;
+import entidades.TipoTransferencia;
+import entidades.Transferencia;
 
 public class ServicioTransferencia {
 
@@ -48,7 +47,7 @@ public class ServicioTransferencia {
             transferenciaController.create(transferencia);
         }
 
-        System.out.println("--- > Transferencias de ejemplo insertadas");
+        System.out.println("Tranferencias insertadas");
     }
 
     public static void crearTransferencia(Transferencia transferencia) {

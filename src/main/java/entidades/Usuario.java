@@ -70,10 +70,15 @@ public class Usuario implements Serializable {
 
     public Usuario() {
 
+        this.cuentaAppCollection = new ArrayList<>();
+        this.objetivoCollection = new ArrayList<>();
     }
 
     public Usuario(Integer codUsuarios) {
         this.codUsuarios = codUsuarios;
+
+        this.cuentaAppCollection = new ArrayList<>();
+        this.objetivoCollection = new ArrayList<>();
     }
 
     

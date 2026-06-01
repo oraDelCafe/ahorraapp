@@ -55,6 +55,9 @@ public class CuentaApp implements Serializable {
     @OneToMany(mappedBy = "codCuentasAppDetprog", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private Collection<DetalleObjetivoProgramado> detalleObjetivoProgramadoCollection;
 
+    @OneToMany(mappedBy = "codCuentasAppDetpunt", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private Collection<DetalleObjetivoPuntual> detalleObjetivoPuntualCollection;
+
     public CuentaApp() {
     }
 
@@ -75,6 +78,7 @@ public class CuentaApp implements Serializable {
 
         this.transferenciaCollection = new ArrayList<>();
         this.detalleObjetivoProgramadoCollection = new ArrayList<>();
+        this.detalleObjetivoPuntualCollection = new ArrayList<>();
     }
 
     public CuentaApp(
@@ -90,6 +94,7 @@ public class CuentaApp implements Serializable {
 
         this.transferenciaCollection = new ArrayList<>();
         this.detalleObjetivoProgramadoCollection = new ArrayList<>();
+        this.detalleObjetivoPuntualCollection = new ArrayList<>();
     }
 
     public Integer getCodCuentasApp() {
@@ -188,6 +193,34 @@ public class CuentaApp implements Serializable {
         detalle.setCodCuentasAppDetprog(null);
     }
 
+    public Collection<DetalleObjetivoPuntual> getDetalleObjetivoPuntualCollection() {
+        return detalleObjetivoPuntualCollection;
+    }
+
+    public void setDetalleObjetivoPuntualCollection(
+            Collection<DetalleObjetivoPuntual> detalleObjetivoPuntualCollection) {
+
+        this.detalleObjetivoPuntualCollection = detalleObjetivoPuntualCollection;
+
+        for (DetalleObjetivoPuntual detalle : detalleObjetivoPuntualCollection) {
+            detalle.setCodCuentasAppDetpunt(this);
+        }
+    }
+
+    public void addDetalleObjetivoPuntual(
+            DetalleObjetivoPuntual detalle) {
+
+        this.detalleObjetivoPuntualCollection.add(detalle);
+        detalle.setCodCuentasAppDetpunt(this);
+    }
+
+    public void removeDetalleObjetivoPuntual(
+            DetalleObjetivoPuntual detalle) {
+
+        this.detalleObjetivoPuntualCollection.remove(detalle);
+        detalle.setCodCuentasAppDetpunt(null);
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -218,4 +251,5 @@ public class CuentaApp implements Serializable {
                 ", cuentaBancoExterna=" + cuentaBancoExterna +
                 '}';
     }
+
 }

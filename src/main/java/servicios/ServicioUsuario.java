@@ -1,9 +1,10 @@
 package servicios;
 
 
+import java.util.ArrayList;
+
 import controladores.UsuarioController;
 import entidades.Usuario;
-import java.util.ArrayList;
 
 
 public class ServicioUsuario {
@@ -45,7 +46,7 @@ public class ServicioUsuario {
             usuarioController.create(usuario);
         }
 
-        System.out.println("--- > Usuarios de ejemplo insertados");
+        System.out.println("Usuarios insertados");
     }
 
     public static void crearUsuario(Usuario usuario) {

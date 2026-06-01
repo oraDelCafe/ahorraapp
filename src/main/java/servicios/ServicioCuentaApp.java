@@ -37,7 +37,7 @@ public class ServicioCuentaApp {
             cuentaAppController.create(cuenta);
         }
 
-        System.out.println("--- > CuentasApp de ejemplo insertadas");
+        System.out.println("Cuentas insetadas");
     }
 
     public static void crearCuentaApp(CuentaApp cuentaApp) {

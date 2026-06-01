@@ -37,7 +37,7 @@ public class DetalleObjetivoProgramadoController {
             if (tx.isActive()) {
                 tx.rollback();
             }
-            throw new RuntimeException("Error al crear el detalle objetivo programado", ex);
+            throw new RuntimeException("Error al crear un detalle  programado", ex);
 
         } finally {
             em.close();
@@ -91,7 +91,7 @@ public class DetalleObjetivoProgramadoController {
             if (tx.isActive()) {
                 tx.rollback();
             }
-            throw new RuntimeException("Error al actualizar el detalle objetivo programado", ex);
+            throw new RuntimeException("Error al actualizar el detalle  programado", ex);
 
         } finally {
             em.close();
@@ -121,7 +121,7 @@ public class DetalleObjetivoProgramadoController {
             if (tx.isActive()) {
                 tx.rollback();
             }
-            throw new RuntimeException("Error al eliminar el detalle objetivo programado", ex);
+            throw new RuntimeException("Error al eliminar el detalle  programado", ex);
 
         } finally {
             em.close();
@@ -152,7 +152,7 @@ public class DetalleObjetivoProgramadoController {
                 tx.rollback();
             }
             throw new RuntimeException(
-                    "Error al eliminar todos los detalles objetivo programados",
+                    "Error al eliminar todos los detalles  programados",
                     ex);
 
         } finally {

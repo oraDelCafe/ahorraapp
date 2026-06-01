@@ -54,11 +54,20 @@ public class Objetivo implements Serializable {
     @OneToMany(mappedBy = "codObjetivosDetprog", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private Collection<DetalleObjetivoProgramado> detalleObjetivoProgramadoCollection;
 
+    @OneToMany(mappedBy = "codObjetivosDetpunt",cascade = CascadeType.PERSIST,orphanRemoval = true)
+    private Collection<DetalleObjetivoPuntual> detalleObjetivoPuntualCollection;
+    
     public Objetivo() {
+
+        this.detalleObjetivoProgramadoCollection = new ArrayList<>();
+        this.detalleObjetivoPuntualCollection = new ArrayList<>();
     }
 
     public Objetivo(Integer codObjetivos) {
         this.codObjetivos = codObjetivos;
+
+        this.detalleObjetivoProgramadoCollection = new ArrayList<>();
+        this.detalleObjetivoPuntualCollection = new ArrayList<>();
     }
 
     public Objetivo(
@@ -70,6 +79,20 @@ public class Objetivo implements Serializable {
         this.descipObj = descipObj;
         this.cantConseObj = cantConseObj;
         this.detalleObjetivoProgramadoCollection = new ArrayList<>();
+        this.detalleObjetivoPuntualCollection = new ArrayList<>();
+    }
+
+    public Objetivo(
+            String nombreObj, Double cantidadObj,
+            String descipObj, Double cantConseObj, Usuario codUsuariosObj) {
+
+        this.nombreObj = nombreObj;
+        this.cantidadObj = cantidadObj;
+        this.descipObj = descipObj;
+        this.cantConseObj = cantConseObj;
+        this.codUsuariosObj = codUsuariosObj;
+        this.detalleObjetivoProgramadoCollection = new ArrayList<>();
+        this.detalleObjetivoPuntualCollection = new ArrayList<>();
     }
 
     public Integer getCodObjetivos() {
@@ -148,6 +171,34 @@ public class Objetivo implements Serializable {
         detalleObjetivoProgramado.setCodObjetivosDetprog(null);
     }
 
+    public Collection<DetalleObjetivoPuntual> getDetalleObjetivoPuntualCollection() {
+    return detalleObjetivoPuntualCollection;
+}
+
+public void setDetalleObjetivoPuntualCollection(
+        Collection<DetalleObjetivoPuntual> detalleObjetivoPuntualCollection) {
+
+    this.detalleObjetivoPuntualCollection = detalleObjetivoPuntualCollection;
+
+    for (DetalleObjetivoPuntual detalle : detalleObjetivoPuntualCollection) {
+        detalle.setCodObjetivosDetpunt(this);
+    }
+}
+
+public void addDetalleObjetivoPuntual(
+        DetalleObjetivoPuntual detalle) {
+
+    this.detalleObjetivoPuntualCollection.add(detalle);
+    detalle.setCodObjetivosDetpunt(this);
+}
+
+public void removeDetalleObjetivoPuntual(
+        DetalleObjetivoPuntual detalle) {
+
+    this.detalleObjetivoPuntualCollection.remove(detalle);
+    detalle.setCodObjetivosDetpunt(null);
+}
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -179,4 +230,6 @@ public class Objetivo implements Serializable {
                 ", cantConseObj=" + cantConseObj +
                 '}';
     }
+
+    
 }
