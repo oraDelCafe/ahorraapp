@@ -50,6 +50,9 @@ public class Usuario implements Serializable {
     @Column(name = "Ape2Usu")
     private String ape2Usu;
 
+    @Column(name = "Pass")
+    private String pass;
+
     @Column(name = "emailUsu")
     private String emailUsu;
 
@@ -81,15 +84,15 @@ public class Usuario implements Serializable {
         this.objetivoCollection = new ArrayList<>();
     }
 
-    
     public Usuario(
             String nombreUsu, String ape1Usu, String ape2Usu,
-            String emailUsu, String dniUsu, String dirUsu,
-            String tlfUsu) {
+            String pass,String emailUsu, String dniUsu, 
+            String dirUsu,String tlfUsu) {
 
         this.nombreUsu = nombreUsu;
         this.ape1Usu = ape1Usu;
         this.ape2Usu = ape2Usu;
+        this.pass = pass;
         this.emailUsu = emailUsu;
         this.dniUsu = dniUsu;
         this.dirUsu = dirUsu;
@@ -263,5 +266,13 @@ public class Usuario implements Serializable {
                 + ", cuentas=\n" + cuentas
                 + ", objetivos=\n" + objetivos
                 + '}';
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 }

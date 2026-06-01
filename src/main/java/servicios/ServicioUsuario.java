@@ -1,11 +1,9 @@
 package servicios;
 
-
 import java.util.ArrayList;
 
 import controladores.UsuarioController;
 import entidades.Usuario;
-
 
 public class ServicioUsuario {
 
@@ -19,6 +17,7 @@ public class ServicioUsuario {
                 "Juan",
                 "Pérez",
                 "García",
+                "juan123",
                 "juan@gmail.com",
                 "12345678A",
                 "Calle Mayor 1",
@@ -28,6 +27,7 @@ public class ServicioUsuario {
                 "María",
                 "López",
                 "Martín",
+                "maria123",
                 "maria@gmail.com",
                 "87654321B",
                 "Avenida Sol 10",
@@ -37,6 +37,7 @@ public class ServicioUsuario {
                 "Pedro",
                 "Ruiz",
                 "Sánchez",
+                "pedro123",
                 "pedro@gmail.com",
                 "11223344C",
                 "Calle Luna 5",
@@ -73,5 +74,4 @@ public class ServicioUsuario {
     public static void borrarTodosUsuarios() {
         usuarioController.deleteAll();
     }
-
 }
