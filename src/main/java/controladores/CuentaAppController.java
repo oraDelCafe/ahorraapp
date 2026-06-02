@@ -154,6 +154,26 @@ public class CuentaAppController {
         }
     }
 
+    public List<CuentaApp> findCuentasUsuarioHastaHoy(Integer idUsuario) {
+
+        EntityManager em = getEntityManager();
+
+        try {
+
+            return em.createQuery(
+                    "SELECT c FROM CuentaApp c "
+                            + "WHERE c.codUsuariosCuentasapp.codUsuarios = :idUsuario "
+                            + "AND c.fechaCuenta <= CURRENT_DATE "
+                            + "ORDER BY c.fechaCuenta DESC",
+                    CuentaApp.class)
+                    .setParameter("idUsuario", idUsuario)
+                    .getResultList();
+
+        } finally {
+            em.close();
+        }
+    }
+
     public void close() {
         if (emf != null && emf.isOpen()) {
             emf.close();

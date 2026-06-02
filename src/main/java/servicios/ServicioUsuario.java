@@ -58,6 +58,10 @@ public class ServicioUsuario {
         return usuarioController.findById(id);
     }
 
+    public static Usuario buscarUsuarioPorNombre(String nombre) {
+    return usuarioController.findByNombre(nombre);
+}
+
     public static void actualizarUsuario(Usuario usuario) {
         usuarioController.update(usuario);
     }

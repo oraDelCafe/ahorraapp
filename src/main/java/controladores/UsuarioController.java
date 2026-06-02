@@ -59,6 +59,29 @@ public class UsuarioController {
     }
 
     /**
+     * Busca un usuario por Nombre.
+     */
+
+    public Usuario findByNombre(String nombre) {
+        EntityManager em = getEntityManager();
+
+        try {
+            List<Usuario> lista = em.createNamedQuery("Usuario.findByNombre", Usuario.class)
+                    .setParameter("nombre", nombre)
+                    .getResultList();
+
+            if (lista.isEmpty()) {
+                return null;
+            }
+
+            return lista.get(0);
+
+        } finally {
+            em.close();
+        }
+    }
+
+    /**
      * Obtiene todos los usuarios.
      */
     public List<Usuario> findAll() {

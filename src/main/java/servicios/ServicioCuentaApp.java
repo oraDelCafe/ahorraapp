@@ -1,5 +1,6 @@
 package servicios;
 
+import java.util.List;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -47,6 +48,10 @@ public class ServicioCuentaApp {
     public static CuentaApp buscarCuentaApp(Integer id) {
         return cuentaAppController.findById(id);
     }
+
+    public static List<CuentaApp> buscarCuentasUsuarioHastaHoy(Integer idUsuario) {
+    return cuentaAppController.findCuentasUsuarioHastaHoy(idUsuario);
+}
 
     public static void actualizarCuentaApp(CuentaApp cuentaApp) {
         cuentaAppController.update(cuentaApp);

@@ -18,6 +18,7 @@ public class GestionarObjetivos extends javax.swing.JDialog {
     public GestionarObjetivos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -84,7 +84,7 @@ public class ObjetivoCreado extends javax.swing.JDialog {
 
         jLabel9.setText("Periodo:");
 
-        jCPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "pepe 1", "nada 2", "manolos 3", "Item 4" }));
         jCPeriodo.addActionListener(this::jCPeriodoActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

@@ -33,7 +33,7 @@ public class ObjetivoExistente extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnCambiarIngreso = new javax.swing.JButton();
         btnPagoPunt = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnInactivo = new javax.swing.JButton();
@@ -55,8 +55,8 @@ public class ObjetivoExistente extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Cambiar Ingreso Periodico");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        btnCambiarIngreso.setText("Cambiar Ingreso Periodico");
+        btnCambiarIngreso.addActionListener(this::btnCambiarIngresoActionPerformed);
 
         btnPagoPunt.setText("Pago Directo");
         btnPagoPunt.addActionListener(this::btnPagoPuntActionPerformed);
@@ -65,6 +65,7 @@ public class ObjetivoExistente extends javax.swing.JDialog {
         btnSalir.addActionListener(this::btnSalirActionPerformed);
 
         btnInactivo.setText("Activar/Desactivar");
+        btnInactivo.addActionListener(this::btnInactivoActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -77,7 +78,7 @@ public class ObjetivoExistente extends javax.swing.JDialog {
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnInactivo)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCambiarIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -98,7 +99,7 @@ public class ObjetivoExistente extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnCambiarIngreso)
                     .addComponent(btnPagoPunt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -125,15 +126,24 @@ public class ObjetivoExistente extends javax.swing.JDialog {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnPagoPuntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagoPuntActionPerformed
         // TODO add your handling code here:
+        ObjetivoPagoDirecto u = new ObjetivoPagoDirecto((java.awt.Frame) this.getParent(), true);
     }//GEN-LAST:event_btnPagoPuntActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCambiarIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarIngresoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        ObjetivoCambiarIngresoPeriodico u = new ObjetivoCambiarIngresoPeriodico((java.awt.Frame) this.getParent(), true);
+        
+    }//GEN-LAST:event_btnCambiarIngresoActionPerformed
+
+    private void btnInactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInactivoActionPerformed
+        // TODO add your handling code here:
+        ObjetivoActivarDesactivar u  = new ObjetivoActivarDesactivar((java.awt.Frame) this.getParent(), true);
+    }//GEN-LAST:event_btnInactivoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,10 +183,10 @@ public class ObjetivoExistente extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCambiarIngreso;
     private javax.swing.JButton btnInactivo;
     private javax.swing.JButton btnPagoPunt;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

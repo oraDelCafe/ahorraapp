@@ -16,6 +16,7 @@ public class Transferencias extends javax.swing.JDialog {
     public Transferencias(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -122,10 +123,13 @@ public class Transferencias extends javax.swing.JDialog {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransActionPerformed
         // TODO add your handling code here:
+        HacerTransferencia u = new HacerTransferencia((java.awt.Frame) this.getParent(), true);
+        u.setVisible(true);
     }//GEN-LAST:event_btnTransActionPerformed
 
     /**
