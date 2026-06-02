@@ -200,9 +200,9 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
+                        .addGap(199, 199, 199)
                         .addComponent(btnModificar)
-                        .addGap(94, 94, 94)
+                        .addGap(72, 72, 72)
                         .addComponent(btnSalir))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
@@ -267,11 +267,11 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
                     .addComponent(jLabel9)
                     .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLPass))
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModificar)
                     .addComponent(btnSalir))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
