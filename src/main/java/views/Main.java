@@ -1,4 +1,4 @@
-package vistas;
+package views;
 
 import servicios.ServicioCuentaApp;
 import servicios.ServicioDetalleObjetivoProgramado;

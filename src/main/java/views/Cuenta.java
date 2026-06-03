@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package vistas;
+package views;
 
 import java.awt.Frame;
 import java.util.List;
@@ -20,16 +20,20 @@ import javax.swing.JOptionPane;
 public class Cuenta extends javax.swing.JDialog {
 
     private Usuario usuario;
+    private CuentaApp cuenta;
 
     /**
      * Creates new form Cuenta
      */
-    public Cuenta(java.awt.Frame parent, boolean modal, Usuario usuario) {
+    public Cuenta(
+        java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp
+        ) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
 
         this.usuario = usuario;
+        this.cuenta = cuentaApp;
 
         jLNombreUsu.setText(usuario.getNombreUsu() + " " + usuario.getApe1Usu());
 
@@ -168,7 +172,7 @@ public class Cuenta extends javax.swing.JDialog {
 
     private void bntGestionarObjActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bntGestionarObjActionPerformed
         // TODO add your handling code here:
-        GestionarObjetivos u = new GestionarObjetivos((java.awt.Frame) this.getParent(), true, usuario);
+        GestionarObjetivos u = new GestionarObjetivos((java.awt.Frame) this.getParent(), true, usuario , cuenta);
         u.setVisible(true);
 
     }// GEN-LAST:event_bntGestionarObjActionPerformed
@@ -190,13 +194,13 @@ public class Cuenta extends javax.swing.JDialog {
 
     private void btnTransActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnTransActionPerformed
         // TODO add your handling code here:
-        Transferencias u = new Transferencias((java.awt.Frame) this.getParent(), true, usuario);
+        Transferencias u = new Transferencias((java.awt.Frame) this.getParent(), true, usuario , cuenta);
         u.setVisible(true);
     }// GEN-LAST:event_btnTransActionPerformed
 
     private void btnDatosUsuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDatosUsuActionPerformed
         // TODO add your handling code here:
-        GestionDatosUsuario u = new GestionDatosUsuario((java.awt.Frame) this.getParent(), true, usuario);
+        GestionDatosUsuario u = new GestionDatosUsuario((java.awt.Frame) this.getParent(), true, usuario , cuenta);
         u.setVisible(true);
     }// GEN-LAST:event_btnDatosUsuActionPerformed
 
@@ -263,7 +267,7 @@ public class Cuenta extends javax.swing.JDialog {
         // añade columnas y las filas iniciales
         ModeloTabla modelo = new ModeloTabla(anadirColumnas(), 0);
 
-        CuentaApp cuenta = ServicioCuentaApp.buscarCuentaUsuario(
+        cuenta = ServicioCuentaApp.buscarCuentaUsuario(
                 usuario.getCodUsuarios());
 
         if (cuenta != null) {

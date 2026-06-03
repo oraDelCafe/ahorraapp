@@ -73,6 +73,26 @@ public class TransferenciaController {
         }
     }
 
+    public List<Transferencia> findTransferenciasCuenta(Integer idCuenta) {
+
+        EntityManager em = getEntityManager();
+
+        try {
+
+            return em.createQuery(
+                    "SELECT t FROM Transferencia t "
+                            + "WHERE t.codCuentasTrans.codCuentasApp = :idCuenta "
+                            + "ORDER BY t.fechaTrans DESC",
+                    Transferencia.class)
+                    .setParameter("idCuenta", idCuenta)
+                    .getResultList();
+
+        } finally {
+
+            em.close();
+        }
+    }
+
     /**
      * Actualiza una transferencia.
      */

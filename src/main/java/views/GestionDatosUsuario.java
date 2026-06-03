@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package vistas;
+package views;
 
 import javax.swing.JOptionPane;
 
@@ -19,17 +19,18 @@ import java.util.List;
 public class GestionDatosUsuario extends javax.swing.JDialog {
 
         private Usuario usuario;
-        private CuentaApp cuentaApp;
+        private CuentaApp cuenta;
 
         /**
          * Creates new form GestionDatosUsuario2
          */
-        public GestionDatosUsuario(java.awt.Frame parent, boolean modal, Usuario usuario) {
+        public GestionDatosUsuario(java.awt.Frame parent, boolean modal, Usuario usuario ,CuentaApp cuentaApp) {
                 super(parent, modal);
                 initComponents();
                 setLocationRelativeTo(null);
 
                 this.usuario = usuario;
+                this.cuenta= cuentaApp;
 
                 cargarDatosUsuario();
 
@@ -549,10 +550,10 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
                                 // actualiza usuarios.
                                 ServicioUsuario.actualizarUsuario(usuario);
                                 // actualiza cuenta
-                                if (cuentaApp != null) {
+                                if (cuenta != null) {
 
-                                        cuentaApp.setCuentaBancoExterna(cuentaBanco);
-                                        ServicioCuentaApp.actualizarCuentaApp(cuentaApp);
+                                        cuenta.setCuentaBancoExterna(cuentaBanco);
+                                        ServicioCuentaApp.actualizarCuentaApp(cuenta);
                                 } else {
                                         JOptionPane.showMessageDialog(this,
                                                         "Datos modificados correctamente");
@@ -674,13 +675,13 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
                         txtEmail.setText(usuario.getEmailUsu());
                         txtPass.setText(usuario.getPass());
 
-                        cuentaApp = ServicioCuentaApp.buscarCuentaUsuario(
+                        cuenta = ServicioCuentaApp.buscarCuentaUsuario(
                                         usuario.getCodUsuarios());
 
-                        if (cuentaApp != null) {
+                        if (cuenta != null) {
 
-                                jLCuentaVExt.setText(cuentaApp.getCuentaBancoExterna());
-                                txtCuentaVExt.setText(cuentaApp.getCuentaBancoExterna());
+                                jLCuentaVExt.setText(cuenta.getCuentaBancoExterna());
+                                txtCuentaVExt.setText(cuenta.getCuentaBancoExterna());
 
                         } else {
 

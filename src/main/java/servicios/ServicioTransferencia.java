@@ -2,6 +2,7 @@ package servicios;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import controladores.TransferenciaController;
 import entidades.CuentaApp;
@@ -73,5 +74,9 @@ public class ServicioTransferencia {
 
     public static void borrarTodasTransferencias() {
         transferenciaController.deleteAll();
+    }
+
+    public static List<Transferencia> buscarTransferenciasCuenta(Integer idCuenta) {
+        return transferenciaController.findTransferenciasCuenta(idCuenta);
     }
 }
