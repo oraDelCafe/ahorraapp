@@ -30,6 +30,7 @@ public class Cuenta extends javax.swing.JDialog {
         ) {
         super(parent, modal);
         initComponents();
+        setVisible(true);
         setLocationRelativeTo(null);
 
         this.usuario = usuario;
