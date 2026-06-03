@@ -89,6 +89,14 @@ public class Usuario implements Serializable {
             String pass, String emailUsu, String dniUsu,
             String dirUsu, String tlfUsu) {
 
+        if (!comprobarEmail(emailUsu)) {
+            throw new IllegalArgumentException("Email incorrecto");
+        }
+
+        if (!comprobarPassPatron(pass)) {
+            throw new IllegalArgumentException("Contraseña incorrecta");
+        }
+
         this.nombreUsu = nombreUsu;
         this.ape1Usu = ape1Usu;
         this.ape2Usu = ape2Usu;
@@ -138,6 +146,11 @@ public class Usuario implements Serializable {
     }
 
     public void setEmailUsu(String emailUsu) {
+
+        if (!comprobarEmail(emailUsu)) {
+            throw new IllegalArgumentException("Email incorrecto");
+        }
+
         this.emailUsu = emailUsu;
     }
 
@@ -251,7 +264,7 @@ public class Usuario implements Serializable {
                 + ", dniUsu=" + dniUsu
                 + ", dirUsu=" + dirUsu
                 + ", tlfUsu=" + tlfUsu
-               + ", cuenta=\n" + cuenta
+                + ", cuenta=\n" + cuenta
                 + ", objetivos=\n" + objetivos
                 + '}';
     }
@@ -261,6 +274,50 @@ public class Usuario implements Serializable {
     }
 
     public void setPass(String pass) {
+
+        if (!comprobarPass(this.pass, pass)) {
+            throw new IllegalArgumentException("Contraseña incorrecta");
+        }
+
         this.pass = pass;
+    }
+
+    // metodos
+
+    /**
+     * Devuelve true si la contraseña nueva no es igual a la anterior
+     * y si esta coincide con el patron
+     * 
+     * @param passActual
+     * @param passNueva
+     * @return
+     */
+    public static boolean comprobarPass(String passActual, String passNueva) {
+
+        String patronPass = "^[A-Za-z]{5,}[0-9]{2,}$";
+        // si no es igual true y si coincide con el patron
+        return passNueva.matches(patronPass) && !passActual.equals(passNueva);
+
+    }
+
+    public static boolean comprobarPassPatron(String passNueva) {
+
+        String patronPass = "^[A-Za-z]{5,}[0-9]{2,}$";
+        // si no es igual true y si coincide con el patron
+        return passNueva.matches(patronPass);
+
+    }
+
+    /**
+     * Devuelve true si el email coincide con el patron de un Email
+     * 
+     * @param email
+     * @return
+     */
+    public static boolean comprobarEmail(String email) {
+
+        String patronEmail = "^[A-Za-z0-9_-]{5,}@[A-Za-z0-9]+\\.[A-Za-z]{2,3}$";
+
+        return email.matches(patronEmail);
     }
 }

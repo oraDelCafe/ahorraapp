@@ -4,6 +4,8 @@
  */
 package vistas;
 
+import entidades.Usuario;
+
 /**
  *
  * @author 34690
@@ -13,7 +15,7 @@ public class Transferencias extends javax.swing.JDialog {
     /**
      * Creates new form Transferencias
      */
-    public Transferencias(java.awt.Frame parent, boolean modal) {
+    public Transferencias(java.awt.Frame parent, boolean modal , Usuario usuario) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -159,7 +161,8 @@ public class Transferencias extends javax.swing.JDialog {
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
+        /*
+        /* Create and display the dialog 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Transferencias dialog = new Transferencias(new javax.swing.JFrame(), true);
@@ -172,6 +175,8 @@ public class Transferencias extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+        
+        */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

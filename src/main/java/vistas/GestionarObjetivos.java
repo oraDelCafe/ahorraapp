@@ -4,6 +4,8 @@
  */
 package vistas;
 
+import entidades.Usuario;
+
 /**
  *
  * @author usuario
@@ -15,7 +17,7 @@ public class GestionarObjetivos extends javax.swing.JDialog {
     /**
      * Creates new form GestionarObjetivos
      */
-    public GestionarObjetivos(java.awt.Frame parent, boolean modal) {
+    public GestionarObjetivos(java.awt.Frame parent, boolean modal , Usuario usuario) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -138,7 +140,8 @@ public class GestionarObjetivos extends javax.swing.JDialog {
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
+       /*
+        /* Create and display the dialog 
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -152,6 +155,7 @@ public class GestionarObjetivos extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+       */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

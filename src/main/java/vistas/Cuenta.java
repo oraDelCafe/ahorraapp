@@ -168,7 +168,7 @@ public class Cuenta extends javax.swing.JDialog {
 
     private void bntGestionarObjActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bntGestionarObjActionPerformed
         // TODO add your handling code here:
-        GestionarObjetivos u = new GestionarObjetivos((java.awt.Frame) this.getParent(), true);
+        GestionarObjetivos u = new GestionarObjetivos((java.awt.Frame) this.getParent(), true, usuario);
         u.setVisible(true);
 
     }// GEN-LAST:event_bntGestionarObjActionPerformed
@@ -190,13 +190,13 @@ public class Cuenta extends javax.swing.JDialog {
 
     private void btnTransActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnTransActionPerformed
         // TODO add your handling code here:
-        Transferencias u = new Transferencias((java.awt.Frame) this.getParent(), true);
+        Transferencias u = new Transferencias((java.awt.Frame) this.getParent(), true, usuario);
         u.setVisible(true);
     }// GEN-LAST:event_btnTransActionPerformed
 
     private void btnDatosUsuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDatosUsuActionPerformed
         // TODO add your handling code here:
-        GestionDatosUsuario u = new GestionDatosUsuario((java.awt.Frame) this.getParent(), true);
+        GestionDatosUsuario u = new GestionDatosUsuario((java.awt.Frame) this.getParent(), true, usuario);
         u.setVisible(true);
     }// GEN-LAST:event_btnDatosUsuActionPerformed
 
