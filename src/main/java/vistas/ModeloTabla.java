@@ -5,8 +5,8 @@ import javax.swing.table.DefaultTableModel;
 public class ModeloTabla extends DefaultTableModel {
     
 
-    public ModeloTabla(String[] columnas, int i) {
-        super(columnas, i);
+    public ModeloTabla(String[] columnas, int filas) {
+        super(columnas, filas);
     }
 
     @Override

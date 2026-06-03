@@ -1,6 +1,5 @@
 package servicios;
 
-import java.util.List;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -21,7 +20,7 @@ public class ServicioCuentaApp {
 
         Usuario usuario2 = new Usuario();
         usuario2.setCodUsuarios(2);
-        
+
         lista.add(new CuentaApp(
                 usuario,
                 1500.0,
@@ -38,7 +37,7 @@ public class ServicioCuentaApp {
             cuentaAppController.create(cuenta);
         }
 
-        System.out.println("Cuentas insetadas");
+        System.out.println("Cuentas insertadas");
     }
 
     public static void crearCuentaApp(CuentaApp cuentaApp) {
@@ -49,9 +48,9 @@ public class ServicioCuentaApp {
         return cuentaAppController.findById(id);
     }
 
-    public static List<CuentaApp> buscarCuentasUsuarioHastaHoy(Integer idUsuario) {
-    return cuentaAppController.findCuentasUsuarioHastaHoy(idUsuario);
-}
+    public static CuentaApp buscarCuentaUsuario(Integer idUsuario) {
+        return cuentaAppController.findCuentaByUsuario(idUsuario);
+    }
 
     public static void actualizarCuentaApp(CuentaApp cuentaApp) {
         cuentaAppController.update(cuentaApp);

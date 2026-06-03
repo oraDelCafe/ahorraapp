@@ -21,9 +21,6 @@ public class CuentaAppController {
         return emf.createEntityManager();
     }
 
-    /**
-     * Crea una nueva cuenta.
-     */
     public void create(CuentaApp cuentaApp) {
         EntityManager em = getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -44,9 +41,6 @@ public class CuentaAppController {
         }
     }
 
-    /**
-     * Busca una cuenta por ID.
-     */
     public CuentaApp findById(Integer id) {
         EntityManager em = getEntityManager();
 
@@ -58,9 +52,6 @@ public class CuentaAppController {
         }
     }
 
-    /**
-     * Obtiene todas las cuentas.
-     */
     public List<CuentaApp> findAll() {
         EntityManager em = getEntityManager();
 
@@ -73,9 +64,32 @@ public class CuentaAppController {
         }
     }
 
-    /**
-     * Actualiza una cuenta.
-     */
+    public CuentaApp findCuentaByUsuario(Integer idUsuario) {
+        EntityManager em = getEntityManager();
+
+        try {
+
+            List<CuentaApp> lista = em.createQuery(
+                    "SELECT c FROM CuentaApp c "
+                            + "WHERE c.codUsuariosCuentasapp.codUsuarios = :idUsuario",
+                    CuentaApp.class)
+                    .setParameter("idUsuario", idUsuario)
+                    .getResultList();
+
+            if (lista.isEmpty()) {
+
+                return null;
+
+            } else {
+
+                return lista.get(0);
+            }
+
+        } finally {
+            em.close();
+        }
+    }
+
     public void update(CuentaApp cuentaApp) {
         EntityManager em = getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -96,9 +110,6 @@ public class CuentaAppController {
         }
     }
 
-    /**
-     * Elimina una cuenta.
-     */
     public void delete(Integer id) {
         EntityManager em = getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -125,9 +136,6 @@ public class CuentaAppController {
         }
     }
 
-    /**
-     * Elimina todas las cuentas.
-     */
     public void deleteAll() {
         EntityManager em = getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -148,26 +156,6 @@ public class CuentaAppController {
                 tx.rollback();
             }
             throw new RuntimeException("Error al eliminar todas las cuentas", ex);
-
-        } finally {
-            em.close();
-        }
-    }
-
-    public List<CuentaApp> findCuentasUsuarioHastaHoy(Integer idUsuario) {
-
-        EntityManager em = getEntityManager();
-
-        try {
-
-            return em.createQuery(
-                    "SELECT c FROM CuentaApp c "
-                            + "WHERE c.codUsuariosCuentasapp.codUsuarios = :idUsuario "
-                            + "AND c.fechaCuenta <= CURRENT_DATE "
-                            + "ORDER BY c.fechaCuenta DESC",
-                    CuentaApp.class)
-                    .setParameter("idUsuario", idUsuario)
-                    .getResultList();
 
         } finally {
             em.close();

@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -65,29 +66,28 @@ public class Usuario implements Serializable {
     @Column(name = "tlfUsu")
     private String tlfUsu;
 
-    @OneToMany(mappedBy = "codUsuariosCuentasapp", cascade = CascadeType.PERSIST, orphanRemoval = true)
-    private Collection<CuentaApp> cuentaAppCollection;
+    @OneToOne(mappedBy = "codUsuariosCuentasapp", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private CuentaApp cuentaApp;
 
     @OneToMany(mappedBy = "codUsuariosObj", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private Collection<Objetivo> objetivoCollection;
 
     public Usuario() {
 
-        this.cuentaAppCollection = new ArrayList<>();
         this.objetivoCollection = new ArrayList<>();
     }
 
     public Usuario(Integer codUsuarios) {
+
         this.codUsuarios = codUsuarios;
 
-        this.cuentaAppCollection = new ArrayList<>();
         this.objetivoCollection = new ArrayList<>();
     }
 
     public Usuario(
             String nombreUsu, String ape1Usu, String ape2Usu,
-            String pass,String emailUsu, String dniUsu, 
-            String dirUsu,String tlfUsu) {
+            String pass, String emailUsu, String dniUsu,
+            String dirUsu, String tlfUsu) {
 
         this.nombreUsu = nombreUsu;
         this.ape1Usu = ape1Usu;
@@ -98,7 +98,6 @@ public class Usuario implements Serializable {
         this.dirUsu = dirUsu;
         this.tlfUsu = tlfUsu;
 
-        this.cuentaAppCollection = new ArrayList<>();
         this.objetivoCollection = new ArrayList<>();
     }
 
@@ -166,20 +165,6 @@ public class Usuario implements Serializable {
         this.tlfUsu = tlfUsu;
     }
 
-    public Collection<CuentaApp> getCuentaAppCollection() {
-        return cuentaAppCollection;
-    }
-
-    public void setCuentaAppCollection(
-            Collection<CuentaApp> cuentaAppCollection) {
-
-        this.cuentaAppCollection = cuentaAppCollection;
-
-        for (CuentaApp cuenta : cuentaAppCollection) {
-            cuenta.setCodUsuariosCuentasapp(this);
-        }
-    }
-
     public Collection<Objetivo> getObjetivoCollection() {
         return objetivoCollection;
     }
@@ -194,14 +179,17 @@ public class Usuario implements Serializable {
         }
     }
 
-    public void addCuentaApp(CuentaApp cuenta) {
-        this.cuentaAppCollection.add(cuenta);
-        cuenta.setCodUsuariosCuentasapp(this);
+    public CuentaApp getCuentaApp() {
+        return cuentaApp;
     }
 
-    public void removeCuentaApp(CuentaApp cuenta) {
-        this.cuentaAppCollection.remove(cuenta);
-        cuenta.setCodUsuariosCuentasapp(null);
+    public void setCuentaApp(CuentaApp cuentaApp) {
+
+        this.cuentaApp = cuentaApp;
+
+        if (cuentaApp != null) {
+            cuentaApp.setCodUsuariosCuentasapp(this);
+        }
     }
 
     public void addObjetivo(Objetivo objetivo) {
@@ -240,10 +228,10 @@ public class Usuario implements Serializable {
 
         String cuentas = "";
 
-        if (cuentaAppCollection != null) {
-            for (CuentaApp c : cuentaAppCollection) {
-                cuentas += c + "\n";
-            }
+        String cuenta = "";
+
+        if (cuentaApp != null) {
+            cuenta = cuentaApp.toString();
         }
 
         String objetivos = "";
@@ -263,7 +251,7 @@ public class Usuario implements Serializable {
                 + ", dniUsu=" + dniUsu
                 + ", dirUsu=" + dirUsu
                 + ", tlfUsu=" + tlfUsu
-                + ", cuentas=\n" + cuentas
+               + ", cuenta=\n" + cuenta
                 + ", objetivos=\n" + objetivos
                 + '}';
     }

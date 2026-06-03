@@ -19,8 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class Cuenta extends javax.swing.JDialog {
 
-    private  Usuario usuario;
-    
+    private Usuario usuario;
 
     /**
      * Creates new form Cuenta
@@ -31,8 +30,8 @@ public class Cuenta extends javax.swing.JDialog {
         setLocationRelativeTo(null);
 
         this.usuario = usuario;
-        
-        jLNombreUsu.setText(usuario.getNombreUsu() + " " + usuario.getApe1Usu() );
+
+        jLNombreUsu.setText(usuario.getNombreUsu() + " " + usuario.getApe1Usu());
 
         cargarDatosCuentaTabla();
     }
@@ -233,48 +232,45 @@ public class Cuenta extends javax.swing.JDialog {
         // </editor-fold>
 
         /* Create and display the dialog */
-       /*
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Cuenta dialog = new Cuenta(new javax.swing.JFrame(), true, usuario);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-       */
+        /*
+         * java.awt.EventQueue.invokeLater(new Runnable() {
+         * public void run() {
+         * Cuenta dialog = new Cuenta(new javax.swing.JFrame(), true, usuario);
+         * dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+         * 
+         * @Override
+         * public void windowClosing(java.awt.event.WindowEvent e) {
+         * System.exit(0);
+         * }
+         * });
+         * dialog.setVisible(true);
+         * }
+         * });
+         */
 
     }
 
-
-
-    // metodos 
+    // metodos
 
     private String[] anadirColumnas() {
-        String[] columnas = {"Saldo", "Fecha cuenta"};
+        String[] columnas = { "Saldo", "Fecha cuenta" };
         return columnas;
     }
-
 
     private void cargarDatosCuentaTabla() {
 
     try {
-
+        // añade columnas y las filas iniciales
         ModeloTabla modelo = new ModeloTabla(anadirColumnas(), 0);
 
-        List<CuentaApp> lista =
-                ServicioCuentaApp.buscarCuentasUsuarioHastaHoy(
-                        usuario.getCodUsuarios());
+        CuentaApp cuenta = ServicioCuentaApp.buscarCuentaUsuario(
+                usuario.getCodUsuarios());
 
-        for (CuentaApp cuenta : lista) {
+        if (cuenta != null) {
 
             Object[] fila = {
-                cuenta.getSaldoCuentas(),
-                cuenta.getFechaCuenta()
+                    cuenta.getSaldoCuentas(),
+                    cuenta.getFechaCuenta()
             };
 
             modelo.addRow(fila);
