@@ -31,8 +31,8 @@ public class ObjetivoCambiarIngresoPeriodico extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jCObjetivo = new javax.swing.JComboBox<>();
-        txtNuevaCant = new javax.swing.JTextField();
+        jCObj = new javax.swing.JComboBox<>();
+        txtCant = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
@@ -44,16 +44,16 @@ public class ObjetivoCambiarIngresoPeriodico extends javax.swing.JDialog {
 
         jLabel3.setText("Nueva Cantidad:");
 
-        jCObjetivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jCObjetivo.addActionListener(new java.awt.event.ActionListener() {
+        jCObj.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCObj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCObjetivoActionPerformed(evt);
+                jCObjActionPerformed(evt);
             }
         });
 
-        txtNuevaCant.addActionListener(new java.awt.event.ActionListener() {
+        txtCant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNuevaCantActionPerformed(evt);
+                txtCantActionPerformed(evt);
             }
         });
 
@@ -85,7 +85,7 @@ public class ObjetivoCambiarIngresoPeriodico extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(90, 90, 90)
-                        .addComponent(jCObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jCObj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -95,7 +95,7 @@ public class ObjetivoCambiarIngresoPeriodico extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtNuevaCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(90, 90, 90)
                                 .addComponent(btnSalir)))))
@@ -109,10 +109,10 @@ public class ObjetivoCambiarIngresoPeriodico extends javax.swing.JDialog {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jCObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCObj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtNuevaCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -135,13 +135,13 @@ public class ObjetivoCambiarIngresoPeriodico extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCObjetivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCObjetivoActionPerformed
+    private void jCObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCObjActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCObjetivoActionPerformed
+    }//GEN-LAST:event_jCObjActionPerformed
 
-    private void txtNuevaCantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNuevaCantActionPerformed
+    private void txtCantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNuevaCantActionPerformed
+    }//GEN-LAST:event_txtCantActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
@@ -200,11 +200,11 @@ public class ObjetivoCambiarIngresoPeriodico extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox<String> jCObjetivo;
+    private javax.swing.JComboBox<String> jCObj;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtNuevaCant;
+    private javax.swing.JTextField txtCant;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,6 +39,11 @@ public class HacerTransferencia extends javax.swing.JDialog {
         this.cuenta = cuentaApp;
 
         jLSaldo.setText(cuenta.getSaldoCuentas().toString());
+        // pongo tipo de transferencia en el combobox
+        for (TipoTransferencia tipo : TipoTransferencia.values()) {
+
+            jCTipoTrans.addItem(String.valueOf(tipo));
+        }
     }
 
     /**
@@ -48,7 +53,8 @@ public class HacerTransferencia extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -60,7 +66,7 @@ public class HacerTransferencia extends javax.swing.JDialog {
         btnSalir = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLSaldo = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCTipoTrans = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -101,74 +107,98 @@ public class HacerTransferencia extends javax.swing.JDialog {
 
         jLSaldo.setText("jLabel5");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCTipoTrans.setModel(
+                new javax.swing.DefaultComboBoxModel<>(new String[] { "Enviar", "Solicitar" }));
 
         jLabel5.setText("Tipo : ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4))
-                                    .addComponent(jLabel2))
-                                .addGap(82, 82, 82)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtConcepto, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                                    .addComponent(texCantidad)
-                                    .addComponent(jLSaldo)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnAceptar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnSalir)
-                                        .addGap(16, 16, 16)))))))
-                .addContainerGap(64, Short.MAX_VALUE))
-        );
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(137, 137, 137)
+                                                .addComponent(jLabel1))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(76, 76, 76)
+                                                .addGroup(layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+                                                                false)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addGroup(layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(jLabel3)
+                                                                                .addComponent(jLabel4))
+                                                                        .addComponent(jLabel2))
+                                                                .addGap(82, 82, 82)
+                                                                .addGroup(layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING,
+                                                                        false)
+                                                                        .addComponent(txtConcepto,
+                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                121, Short.MAX_VALUE)
+                                                                        .addComponent(texCantidad)
+                                                                        .addComponent(jLSaldo)))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGap(2, 2, 2)
+                                                                .addGroup(layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(layout.createSequentialGroup()
+                                                                                .addComponent(jLabel5)
+                                                                                .addPreferredGap(
+                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                        Short.MAX_VALUE)
+                                                                                .addComponent(jCTipoTrans,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addGroup(layout.createSequentialGroup()
+                                                                                .addComponent(btnAceptar)
+                                                                                .addPreferredGap(
+                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                        Short.MAX_VALUE)
+                                                                                .addComponent(btnSalir)
+                                                                                .addGap(16, 16, 16)))))))
+                                .addContainerGap(64, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel1)
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLSaldo))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(texCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAceptar)
-                    .addComponent(btnSalir))
-                .addGap(40, 40, 40))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel1)
+                                .addGap(14, 14, 14)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLSaldo))
+                                .addGap(17, 17, 17)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel2)
+                                        .addComponent(texCantidad, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel3)
+                                        .addComponent(txtConcepto, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(34, 34, 34)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jCTipoTrans, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37,
+                                        Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnAceptar)
+                                        .addComponent(btnSalir))
+                                .addGap(40, 40, 40)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -194,27 +224,53 @@ public class HacerTransferencia extends javax.swing.JDialog {
 
                 Double cantidad = Double.parseDouble(cantidadTexto);
 
+                TipoTransferencia tipo;
+
+                if (jCTipoTrans.getSelectedItem().equals("Enviar")) {
+
+                    tipo = TipoTransferencia.Gasto;
+
+                } else {
+
+                    tipo = TipoTransferencia.Ingreso;
+                }
+
                 if (cantidad <= 0) {
 
                     JOptionPane.showMessageDialog(this,
                             "La cantidad debe ser mayor que 0");
 
-                } else if (cantidad > cuenta.getSaldoCuentas()) {
+                } else if (tipo == TipoTransferencia.Gasto
+                        && cantidad > cuenta.getSaldoCuentas()) {
 
                     JOptionPane.showMessageDialog(this,
                             "No puedes transferir más dinero de tu saldo actual.");
 
                 } else {
 
+                    String codigoTransaccion = obtenerCodigoTransaccion(tipo, usuario, cuenta);
+
                     Transferencia transferencia = new Transferencia(
                             LocalDate.now(),
-                            TipoTransferencia.Gasto,
+                            tipo,
                             cantidad,
                             concepto,
-                            obtenerCodigoTransaccion(usuario, cuenta),
+                            codigoTransaccion,
                             cuenta);
 
-                    cuenta.setSaldoCuentas(cuenta.getSaldoCuentas() - cantidad);
+                    if (tipo == TipoTransferencia.Gasto) {
+
+                        cuenta.setSaldoCuentas(cuenta.getSaldoCuentas() - cantidad);
+
+                    } else {
+
+                        cuenta.setSaldoCuentas(cuenta.getSaldoCuentas() + cantidad);
+
+                        JOptionPane.showMessageDialog(this,
+                                "Solicitando " + cantidad
+                                        + "€ a la cuenta "
+                                        + cuenta.getCuentaBancoExterna());
+                    }
 
                     ServicioTransferencia.crearTransferencia(transferencia);
                     ServicioCuentaApp.actualizarCuentaApp(cuenta);
@@ -244,27 +300,38 @@ public class HacerTransferencia extends javax.swing.JDialog {
         // TODO add your handling code here:
     }// GEN-LAST:event_txtConceptoActionPerformed
 
-
-    // metodos  
-    private String obtenerCodigoTransaccion(Usuario usuario,
+    // metodos
+    private String obtenerCodigoTransaccion(TipoTransferencia tipo, Usuario usuario,
             CuentaApp cuenta) {
 
-        List<Transferencia> lista = ServicioTransferencia.buscarTransferenciasCuenta(cuenta.getCodCuentasApp());
+        List<Transferencia> lista = ServicioTransferencia.buscarTransferenciasCuenta(
+                cuenta.getCodCuentasApp());
 
-        if (!lista.isEmpty()) {
+        for (Transferencia transferencia : lista) {
 
-            return lista.get(0).getCodigoTransaccion();
+            if (transferencia.getTipoTrans() == tipo) {
 
-        } 
+                return transferencia.getCodigoTransaccion();
+            }
+        }
 
-        return usuario.getNombreUsu().substring(0, 2).toUpperCase() + System.currentTimeMillis();
-        
+        if (tipo == TipoTransferencia.Gasto) {
+
+            return "GA" + usuario.getNombreUsu().substring(0, 2).toUpperCase()
+                    + System.currentTimeMillis();
+
+        } else {
+
+            return "IN" + usuario.getNombreUsu().substring(0, 2).toUpperCase()
+                    + System.currentTimeMillis();
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jCTipoTrans;
     private javax.swing.JLabel jLSaldo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
