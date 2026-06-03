@@ -8,6 +8,7 @@ import controladores.TransferenciaController;
 import entidades.CuentaApp;
 import entidades.TipoTransferencia;
 import entidades.Transferencia;
+import entidades.Usuario;
 
 public class ServicioTransferencia {
 
@@ -79,4 +80,5 @@ public class ServicioTransferencia {
     public static List<Transferencia> buscarTransferenciasCuenta(Integer idCuenta) {
         return transferenciaController.findTransferenciasCuenta(idCuenta);
     }
+
 }

@@ -4,8 +4,17 @@
  */
 package views;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import entidades.CuentaApp;
+import entidades.TipoTransferencia;
+import entidades.Transferencia;
 import entidades.Usuario;
+import servicios.ServicioCuentaApp;
+import servicios.ServicioTransferencia;
 
 /**
  *
@@ -20,8 +29,8 @@ public class HacerTransferencia extends javax.swing.JDialog {
      * Creates new form HacerTransferencia
      */
     public HacerTransferencia(
-        java.awt.Frame parent, boolean modal,Usuario usuario, CuentaApp cuentaApp
-        ) {
+            java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
+
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -29,8 +38,7 @@ public class HacerTransferencia extends javax.swing.JDialog {
         this.usuario = usuario;
         this.cuenta = cuentaApp;
 
-
-        
+        jLSaldo.setText(cuenta.getSaldoCuentas().toString());
     }
 
     /**
@@ -159,10 +167,65 @@ public class HacerTransferencia extends javax.swing.JDialog {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }// GEN-LAST:event_btnSalirActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
+        try {
+
+            String cantidadTexto = texCantidad.getText().trim();
+            String concepto = txtConcepto.getText().trim();
+
+            if (cantidadTexto.isEmpty() || concepto.isEmpty()) {
+
+                JOptionPane.showMessageDialog(this,
+                        "Faltan campos por rellenar");
+
+            } else {
+
+                Double cantidad = Double.parseDouble(cantidadTexto);
+
+                if (cantidad <= 0) {
+
+                    JOptionPane.showMessageDialog(this,
+                            "La cantidad debe ser mayor que 0");
+
+                } else if (cantidad > cuenta.getSaldoCuentas()) {
+
+                    JOptionPane.showMessageDialog(this,
+                            "No puedes transferir más dinero de tu saldo actual.");
+
+                } else {
+
+                    Transferencia transferencia = new Transferencia(
+                            LocalDate.now(),
+                            TipoTransferencia.Gasto,
+                            cantidad,
+                            concepto,
+                            obtenerCodigoTransaccion(usuario, cuenta),
+                            cuenta);
+
+                    cuenta.setSaldoCuentas(cuenta.getSaldoCuentas() - cantidad);
+
+                    ServicioTransferencia.crearTransferencia(transferencia);
+                    ServicioCuentaApp.actualizarCuentaApp(cuenta);
+
+                    jLSaldo.setText(cuenta.getSaldoCuentas().toString());
+
+                    JOptionPane.showMessageDialog(this,
+                            "Transferencia realizada correctamente");
+
+                    this.dispose();
+                }
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Error: " + e.getMessage());
+        }
+
     }// GEN-LAST:event_btnAceptarActionPerformed
 
     private void texCantidadActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_texCantidadActionPerformed
@@ -173,7 +236,22 @@ public class HacerTransferencia extends javax.swing.JDialog {
         // TODO add your handling code here:
     }// GEN-LAST:event_txtConceptoActionPerformed
 
-    
+
+    // metodos  
+    private String obtenerCodigoTransaccion(Usuario usuario,
+            CuentaApp cuenta) {
+
+        List<Transferencia> lista = ServicioTransferencia.buscarTransferenciasCuenta(cuenta.getCodCuentasApp());
+
+        if (!lista.isEmpty()) {
+
+            return lista.get(0).getCodigoTransaccion();
+
+        } 
+
+        return usuario.getNombreUsu().substring(0, 2).toUpperCase() + System.currentTimeMillis();
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
