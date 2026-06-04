@@ -31,9 +31,9 @@ public class ObjetivoCambiarIngresoPeriodico extends javax.swing.JDialog {
     public ObjetivoCambiarIngresoPeriodico(java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
         super(parent, modal);
         initComponents();
-        setVisible(true);
         setLocationRelativeTo(null);
-        
+        setVisible(true);
+
         this.usuario = usuario;
         this.cuentaApp = cuentaApp;
 

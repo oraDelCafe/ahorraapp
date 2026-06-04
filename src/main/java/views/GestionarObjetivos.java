@@ -119,8 +119,8 @@ public class GestionarObjetivos extends javax.swing.JDialog {
         private void btnObjMisActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnObjMisActionPerformed
                 // TODO add your handling code here:
                 ObjetivoExistente u = new ObjetivoExistente((java.awt.Frame) this.getParent(), true, usuario, cuenta);
-                u.setVisible(true);
                 u.setLocationRelativeTo(null);
+                u.setVisible(true);
         }
 
         private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSalirActionPerformed
@@ -132,12 +132,10 @@ public class GestionarObjetivos extends javax.swing.JDialog {
         private void btnObjNuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSalirActionPerformed
                 // TODO add your handling code here:
                 ObjetivoCreado u = new ObjetivoCreado((java.awt.Frame) this.getParent(), true, usuario, cuenta);
-                u.setVisible(true);
                 u.setLocationRelativeTo(null);
+                u.setVisible(true);
 
         }
-
-       
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
         private javax.swing.JButton btnObjMis;

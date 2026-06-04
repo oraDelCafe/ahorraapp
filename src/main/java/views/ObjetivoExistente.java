@@ -33,6 +33,7 @@ public class ObjetivoExistente extends javax.swing.JDialog {
     public ObjetivoExistente(java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
 
         this.usuario = usuario;
@@ -164,8 +165,8 @@ public class ObjetivoExistente extends javax.swing.JDialog {
     private void btnPagoPuntActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnPagoPuntActionPerformed
         // TODO add your handling code here:
         ObjetivoPagoDirecto u = new ObjetivoPagoDirecto((java.awt.Frame) this.getParent(), true, usuario, cuenta);
-        u.setVisible(true);
         u.setLocationRelativeTo(null);
+        u.setVisible(true);
     }// GEN-LAST:event_btnPagoPuntActionPerformed
 
     private void btnCambiarIngresoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCambiarIngresoActionPerformed
@@ -173,8 +174,8 @@ public class ObjetivoExistente extends javax.swing.JDialog {
         ObjetivoCambiarIngresoPeriodico u = new ObjetivoCambiarIngresoPeriodico((java.awt.Frame) this.getParent(), true,
                 usuario, cuenta);
 
-        u.setVisible(true);
         u.setLocationRelativeTo(null);
+        u.setVisible(true);
 
     }// GEN-LAST:event_btnCambiarIngresoActionPerformed
 
@@ -182,8 +183,8 @@ public class ObjetivoExistente extends javax.swing.JDialog {
         // TODO add your handling code here:
         ObjetivoActivarDesactivar u = new ObjetivoActivarDesactivar((java.awt.Frame) this.getParent(), true, usuario,
                 cuenta);
-        u.setVisible(true);
         u.setLocationRelativeTo(null);
+        u.setVisible(true);
     }// GEN-LAST:event_btnInactivoActionPerformed
 
     // metodos

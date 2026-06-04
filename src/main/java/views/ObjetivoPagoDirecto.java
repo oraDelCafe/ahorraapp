@@ -30,8 +30,8 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
     public ObjetivoPagoDirecto(java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
         super(parent, modal);
         initComponents();
-        setVisible(true);
         setLocationRelativeTo(null);
+        setVisible(true);
         this.usuario = usuario;
         this.cuenta = cuentaApp;
 
@@ -276,32 +276,33 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
         }
     }// GEN-LAST:event_btnAceptarActionPerformed
 
+    // metodos
     private void cargarComboObjetivos() {
 
-    jCObj.removeAllItems();
+        jCObj.removeAllItems();
 
-    listaObjetivos = ServicioObjetivo.buscarObjetivosUsuario(
-            usuario.getCodUsuarios());
+        listaObjetivos = ServicioObjetivo.buscarObjetivosUsuario(
+                usuario.getCodUsuarios());
 
-    for (Objetivo objetivo : listaObjetivos) {
+        for (Objetivo objetivo : listaObjetivos) {
 
-        jCObj.addItem(objetivo.getNombreObj());
+            jCObj.addItem(objetivo.getNombreObj());
+        }
     }
-}
 
-private Objetivo obtenerObjetivoSeleccionado() {
+    private Objetivo obtenerObjetivoSeleccionado() {
 
-    int posicion = jCObj.getSelectedIndex();
+        int posicion = jCObj.getSelectedIndex();
 
-    if (posicion >= 0) {
+        if (posicion >= 0) {
 
-        return listaObjetivos.get(posicion);
+            return listaObjetivos.get(posicion);
 
-    } else {
+        } else {
 
-        return null;
+            return null;
+        }
     }
-}
 
     private void actualizarCantidadRestante() {
 

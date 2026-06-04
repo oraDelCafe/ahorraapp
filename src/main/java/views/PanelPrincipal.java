@@ -27,6 +27,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
          */
         public PanelPrincipal() {
                 initComponents();
+                setLocationRelativeTo(null);
         }
 
         /**
@@ -158,8 +159,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         private void btnCrearUsuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCrearUsuActionPerformed
                 // TODO add your handling code here:
                 FormularioUsuario u = new FormularioUsuario(this, true);
-                u.setVisible(true);
                 u.setLocationRelativeTo(null);
+                u.setVisible(true);
 
         }// GEN-LAST:event_btnCrearUsuActionPerformed
 
@@ -186,10 +187,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
                                                 usuario.getCodUsuarios());
 
                                 Cuenta u = new Cuenta(
-                                                (java.awt.Frame) this.getParent(), true, usuario, cuentaApp);
+                                                this, true, usuario, cuentaApp);
 
-                                u.setVisible(true);
                                 u.setLocationRelativeTo(null);
+                                u.setVisible(true);
                                 // cierro pantalla para al entrar a cuentas
                                 this.dispose();
                         }

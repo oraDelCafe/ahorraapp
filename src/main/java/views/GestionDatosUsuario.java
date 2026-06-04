@@ -24,13 +24,14 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
         /**
          * Creates new form GestionDatosUsuario2
          */
-        public GestionDatosUsuario(java.awt.Frame parent, boolean modal, Usuario usuario ,CuentaApp cuentaApp) {
+        public GestionDatosUsuario(java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
                 super(parent, modal);
                 initComponents();
                 setLocationRelativeTo(null);
+                setVisible(true);
 
                 this.usuario = usuario;
-                this.cuenta= cuentaApp;
+                this.cuenta = cuentaApp;
 
                 cargarDatosUsuario();
 
@@ -97,10 +98,6 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
 
                 jLabel7.setText("Telefono:");
 
-              
-
-                
-
                 btnModificar.setText("Modificar");
                 btnModificar.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,11 +114,7 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
 
                 jLabel8.setText("Email :");
 
-                
-
                 jLabel9.setText("Contraseña :");
-
-                
 
                 jLNombre.setText("jLabel10");
 
@@ -142,8 +135,6 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
                 jLCuentaVExt.setText("jLabel10");
 
                 jLabel11.setText("Cuenta Vinculada ");
-
-                
 
                 btnBorrar.setText("Borrar Usuario");
                 btnBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -429,14 +420,14 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
                                         JOptionPane.YES_NO_OPTION);
 
                         if (opcion == JOptionPane.YES_OPTION) {
-                                // borra por id. 
+                                // borra por id.
                                 ServicioUsuario.borrarUsuario(usuario.getCodUsuarios());
 
                                 JOptionPane.showMessageDialog(this,
                                                 "Usuario borrado correctamente");
-                                
+
                                 System.exit(0);
-                        }else {
+                        } else {
                                 JOptionPane.showMessageDialog(this,
                                                 "Gracias por no seguir trabajando con nosotros");
                         }
@@ -448,7 +439,6 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
                 }
         }// GEN-LAST:event_btnBorrarActionPerformed
 
-      
         private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnModificarActionPerformed
                 // TODO add your handling code here:
                 try {
@@ -509,8 +499,6 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
                 // TODO add your handling code here:
                 this.dispose();
         }// GEN-LAST:event_btnSalirActionPerformed
-
-       
 
         // metodos
 
