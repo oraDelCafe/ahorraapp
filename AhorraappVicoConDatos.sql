@@ -31,7 +31,7 @@ CREATE TABLE `cuentasapp` (
   PRIMARY KEY (`CodCuentasApp`),
   KEY `fk_usuarios_cuentasapp` (`CodUsuarios_cuentasapp`),
   CONSTRAINT `fk_usuarios_cuentasapp` FOREIGN KEY (`CodUsuarios_cuentasapp`) REFERENCES `usuarios` (`CodUsuarios`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `cuentasapp` (
 
 LOCK TABLES `cuentasapp` WRITE;
 /*!40000 ALTER TABLE `cuentasapp` DISABLE KEYS */;
-INSERT INTO `cuentasapp` VALUES (1,1,1500.00,'2026-06-04','ES1234567890123456789012'),(2,2,2500.00,'2026-06-04','ES9876543210987654321098'),(3,3,1000.00,'2026-06-04','ES1111222233334444555566'),(5,5,11961.30,'2026-06-04','5555'),(6,1,1500.00,'2026-06-04','ES1234567890123456789012'),(7,2,2500.00,'2026-06-04','ES9876543210987654321098'),(8,3,1000.00,'2026-06-04','ES1111222233334444555566');
+INSERT INTO `cuentasapp` VALUES (1,1,1500.00,'2026-06-04','ES1234567890123456789012'),(2,2,2500.00,'2026-06-04','ES9876543210987654321098'),(3,3,1000.00,'2026-06-04','ES1111222233334444555566');
 /*!40000 ALTER TABLE `cuentasapp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `detalleobjetivoprogramados` (
   KEY `fk_objetivos_detalleprogramado` (`CodObjetivos_detprog`),
   CONSTRAINT `fk_cuentasapp_detalleprogramado` FOREIGN KEY (`CodCuentasApp_detprog`) REFERENCES `cuentasapp` (`CodCuentasApp`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_objetivos_detalleprogramado` FOREIGN KEY (`CodObjetivos_detprog`) REFERENCES `objetivos` (`CodObjetivos`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +74,7 @@ CREATE TABLE `detalleobjetivoprogramados` (
 
 LOCK TABLES `detalleobjetivoprogramados` WRITE;
 /*!40000 ALTER TABLE `detalleobjetivoprogramados` DISABLE KEYS */;
-INSERT INTO `detalleobjetivoprogramados` VALUES (1,1,5,'2026-06-04',300.00,NULL,'2029-05-04','mensual'),(2,2,6,'2026-06-04',150.00,NULL,'2027-11-04','mensual'),(3,3,7,'2026-06-04',100.00,NULL,'2027-02-04','mensual');
+INSERT INTO `detalleobjetivoprogramados` VALUES (1,1,1,'2026-06-04',300.00,NULL,'2029-05-04','mensual'),(2,2,2,'2026-06-04',150.00,NULL,'2028-11-04','mensual'),(3,3,3,'2026-06-04',100.00,NULL,'2027-02-04','mensual');
 /*!40000 ALTER TABLE `detalleobjetivoprogramados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +96,7 @@ CREATE TABLE `detalleobjetivopuntual` (
   KEY `fk_objetivos_detallepuntual` (`CodObjetivos_detpunt`),
   CONSTRAINT `fk_cuentasapp_detallepuntual` FOREIGN KEY (`CodCuentasApp_detpunt`) REFERENCES `cuentasapp` (`CodCuentasApp`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_objetivos_detallepuntual` FOREIGN KEY (`CodObjetivos_detpunt`) REFERENCES `objetivos` (`CodObjetivos`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,6 +105,7 @@ CREATE TABLE `detalleobjetivopuntual` (
 
 LOCK TABLES `detalleobjetivopuntual` WRITE;
 /*!40000 ALTER TABLE `detalleobjetivopuntual` DISABLE KEYS */;
+INSERT INTO `detalleobjetivopuntual` VALUES (1,1,1,200.00,'2026-06-04 10:30:00'),(2,2,2,100.00,'2026-06-04 11:00:00'),(3,3,3,50.00,'2026-06-04 11:30:00');
 /*!40000 ALTER TABLE `detalleobjetivopuntual` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +126,7 @@ CREATE TABLE `objetivos` (
   PRIMARY KEY (`CodObjetivos`),
   KEY `fk_usuarios_objetivos` (`CodUsuarios_obj`),
   CONSTRAINT `fk_usuarios_objetivos` FOREIGN KEY (`CodUsuarios_obj`) REFERENCES `usuarios` (`CodUsuarios`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +135,7 @@ CREATE TABLE `objetivos` (
 
 LOCK TABLES `objetivos` WRITE;
 /*!40000 ALTER TABLE `objetivos` DISABLE KEYS */;
-INSERT INTO `objetivos` VALUES (1,'Coche',12000.00,'Comprar coche',1500.00,1),(2,'Viaje',3000.00,'Viaje de vacaciones',500.00,2),(3,'Portatil',1000.00,'Comprar portatil nuevo',200.00,3),(4,'coche',10000.00,'mi coche',10000.00,5),(5,'Coche',12000.00,'Comprar coche',1500.00,1),(6,'Viaje',3000.00,'Viaje de vacaciones',500.00,2),(7,'Portatil',1000.00,'Comprar portatil nuevo',200.00,3);
+INSERT INTO `objetivos` VALUES (1,'Coche',12000.00,'Comprar coche',1500.00,1),(2,'Viaje',3000.00,'Viaje de vacaciones',500.00,2),(3,'Portatil',1000.00,'Comprar portatil nuevo',200.00,3);
 /*!40000 ALTER TABLE `objetivos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +157,7 @@ CREATE TABLE `transferencia` (
   PRIMARY KEY (`CodTransferencia`),
   KEY `fk_cuentas_cuentasapp` (`CodCuentas_trans`),
   CONSTRAINT `fk_cuentas_cuentasapp` FOREIGN KEY (`CodCuentas_trans`) REFERENCES `cuentasapp` (`CodCuentasApp`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +166,7 @@ CREATE TABLE `transferencia` (
 
 LOCK TABLES `transferencia` WRITE;
 /*!40000 ALTER TABLE `transferencia` DISABLE KEYS */;
-INSERT INTO `transferencia` VALUES (18,'2026-06-04','Ingreso',1500.00,'Ingreso inicial','INPR1760000000001',1),(19,'2026-06-04','Gasto',100.00,'Compra supermercado','GAPR1760000000002',1),(20,'2026-06-04','Ingreso',2500.00,'Ingreso inicial','INPE1760000000003',2),(21,'2026-06-04','Ingreso',1000.00,'Ingreso inicial','INMA1760000000004',3);
+INSERT INTO `transferencia` VALUES (1,'2026-06-04','Ingreso',1500.00,'Ingreso inicial','INPR1760000000001',1),(2,'2026-06-04','Gasto',100.00,'Compra supermercado','GAPR1760000000002',1),(3,'2026-06-04','Ingreso',2500.00,'Ingreso inicial','INPE1760000000003',2),(4,'2026-06-04','Gasto',200.00,'Pago factura','GAPE1760000004',2),(5,'2026-06-04','Ingreso',1000.00,'Ingreso inicial','INMA1760000000005',3);
 /*!40000 ALTER TABLE `transferencia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,7 +188,7 @@ CREATE TABLE `usuarios` (
   `dirUsu` varchar(150) DEFAULT NULL,
   `tlfUsu` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`CodUsuarios`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,7 +197,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'prueba','Lopez','Garcia','prueba123','prueba12@gmail.com','12345678A','Calle Prueba 1','600111222'),(2,'Pedro','Ortega','Nuñez','Pedro123','pedro12@gmail.com','87654321B','Calle Luna 5','600333444'),(3,'Maria','Ruiz','Martin','Maria123','maria12@gmail.com','11223344C','Avenida Sol 10','600555666'),(5,'peeep','pp','pp','pedro123','pedro123@gmail.com','pp','pp','pp'),(6,'prueba','Lopez','Garcia','prueba123','prueba12@gmail.com','12345678A','Calle Prueba 1','600111222'),(7,'Pedro','Ortega','Nuñez','Pedro123','pedro12@gmail.com','87654321B','Calle Luna 5','600333444'),(8,'Maria','Ruiz','Martin','Maria123','maria12@gmail.com','11223344C','Avenida Sol 10','600555666');
+INSERT INTO `usuarios` VALUES (1,'prueba','Lopez','Garcia','prueba123','prueba12@gmail.com','12345678A','Calle Prueba 1','600111222'),(2,'Pedro','Ortega','Nuñez','Pedro123','pedro12@gmail.com','87654321B','Calle Luna 5','600333444'),(3,'Maria','Ruiz','Martin','Maria123','maria12@gmail.com','11223344C','Avenida Sol 10','600555666');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -209,4 +210,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-04 23:37:26
+-- Dump completed on 2026-06-05  0:08:15
