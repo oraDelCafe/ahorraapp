@@ -4,8 +4,11 @@
  */
 package views;
 
+import javax.swing.JOptionPane;
+
 import entidades.CuentaApp;
 import entidades.Usuario;
+import servicios.ServicioObjetivo;
 
 /**
  *
@@ -25,7 +28,6 @@ public class GestionarObjetivos extends javax.swing.JDialog {
         public GestionarObjetivos(java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
                 super(parent, modal);
                 initComponents();
-                
 
                 this.usuario = usuario;
                 this.cuenta = cuentaApp;
@@ -118,9 +120,34 @@ public class GestionarObjetivos extends javax.swing.JDialog {
 
         private void btnObjMisActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnObjMisActionPerformed
                 // TODO add your handling code here:
-                ObjetivoExistente u = new ObjetivoExistente((java.awt.Frame) this.getParent(), true, usuario, cuenta);
-                u.setLocationRelativeTo(null);
-                u.setVisible(true);
+                try {
+                        // controlo que la lista no este vacia
+                        if (ServicioObjetivo.buscarObjetivosUsuario(
+                                        usuario.getCodUsuarios()).isEmpty()) {
+
+                                throw new IllegalArgumentException(
+                                                "No hay objetivos creados");
+                        }
+
+                        ObjetivoExistente u = new ObjetivoExistente(
+                                        (java.awt.Frame) this.getParent(),
+                                        true,
+                                        usuario,
+                                        cuenta);
+
+                        u.setLocationRelativeTo(null);
+                        u.setVisible(true);
+
+                } catch (IllegalArgumentException e) {
+
+                        JOptionPane.showMessageDialog(this,
+                                        e.getMessage());
+
+                } catch (Exception e) {
+
+                        JOptionPane.showMessageDialog(this,
+                                        "Ha ocurrido un error inesperado GOMO ");
+                }
         }
 
         private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSalirActionPerformed

@@ -71,13 +71,13 @@ public class CuentaApp implements Serializable {
             LocalDate fechaCuenta,
             String cuentaBancoExterna) {
 
-        if (saldoCuentas <= 0) {
+        if (saldoCuentas < 0) {
 
             throw new IllegalArgumentException(
-                    "El saldo no puede ser 0 o negativo");
+                    "El saldo no puede ser negativo");
         }
 
-        this.saldoCuentas = saldoCuentas;
+        this.saldoCuentas = 0.0;
         this.fechaCuenta = Date.valueOf(fechaCuenta);
         this.cuentaBancoExterna = cuentaBancoExterna;
         this.codUsuariosCuentasapp = codUsuariosCuentasapp;
@@ -93,14 +93,14 @@ public class CuentaApp implements Serializable {
             LocalDate fechaCuenta,
             String cuentaBancoExterna) {
 
-        if (saldoCuentas <= 0) {
+        if (saldoCuentas < 0) {
 
             throw new IllegalArgumentException(
                     "El saldo no puede ser 0 o negativo");
         }
 
         this.codCuentasApp = codCuentasApp;
-        this.saldoCuentas = saldoCuentas;
+        this.saldoCuentas = 0.0;
         this.fechaCuenta = Date.valueOf(fechaCuenta);
         this.cuentaBancoExterna = cuentaBancoExterna;
 
@@ -123,10 +123,10 @@ public class CuentaApp implements Serializable {
 
     public void setSaldoCuentas(Double saldoCuentas) {
 
-        if (saldoCuentas <= 0) {
+        if (saldoCuentas < 0) {
 
             throw new IllegalArgumentException(
-                    "El saldo no puede ser 0 o negativo");
+                    "El saldo no puede ser negativo");
         }
 
         this.saldoCuentas = saldoCuentas;

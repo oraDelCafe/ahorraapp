@@ -37,7 +37,6 @@ public class Transferencias extends javax.swing.JDialog {
                 jLUsu.setText(usuario.getNombreUsu() + " " + usuario.getApe1Usu());
 
                 cargarDatosTransferenciasTabla();
-
         }
 
         /**

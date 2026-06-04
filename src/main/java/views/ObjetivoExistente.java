@@ -226,6 +226,7 @@ public class ObjetivoExistente extends javax.swing.JDialog {
         private void cargarDatosObjetivosTabla() {
 
                 try {
+                        String mensaje = "No existen actualmente";
 
                         ModeloTabla modelo = new ModeloTabla(anadirColumnas(), 0);
 
@@ -237,19 +238,19 @@ public class ObjetivoExistente extends javax.swing.JDialog {
                                                 .buscarDetallePorObjetivo(
                                                                 objetivo.getCodObjetivos());
 
-                                Object[] fila = {
-                                                objetivo.getNombreObj(),
-                                                objetivo.getCantidadObj(),
-                                                objetivo.getCantConseObj(),
-                                                detalle.getCantidadFijaDetprog(),
-                                                detalle.getFechaIniDetprog(),
-                                                detalle.getFechaFinDetprog(),
-                                                detalle.getFechaInactividadDetprog() != null
-                                                                ? "No activo"
-                                                                : "Activo"
-                                };
-
-                                modelo.addRow(fila);
+                                        Object[] fila = {
+                                                        objetivo.getNombreObj(),
+                                                        objetivo.getCantidadObj(),
+                                                        objetivo.getCantConseObj(),
+                                                        detalle.getCantidadFijaDetprog(),
+                                                        detalle.getFechaIniDetprog(),
+                                                        detalle.getFechaFinDetprog(),
+                                                        detalle.getFechaInactividadDetprog() != null
+                                                                        ? "No activo"
+                                                                        : "Activo"
+                                        };
+                                        modelo.addRow(fila);
+                                    
                         }
 
                         jTable1.setModel(modelo);
