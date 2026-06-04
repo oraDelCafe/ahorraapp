@@ -239,8 +239,6 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
 
-        String cuentas = "";
-
         String cuenta = "";
 
         if (cuentaApp != null) {

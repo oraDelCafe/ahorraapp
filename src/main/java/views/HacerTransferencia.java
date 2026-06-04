@@ -227,7 +227,7 @@ public class HacerTransferencia extends javax.swing.JDialog {
                         String cantidadTexto = texCantidad.getText().trim();
                         String concepto = txtConcepto.getText().trim();
 
-                        if (cantidadTexto.isEmpty() || concepto.isEmpty()) {
+                        if (cantidadTexto.isBlank() || concepto.isBlank()) {
 
                                 JOptionPane.showMessageDialog(this,
                                                 "Faltan campos por rellenar");

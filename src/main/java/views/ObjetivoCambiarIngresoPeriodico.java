@@ -191,7 +191,7 @@ public class ObjetivoCambiarIngresoPeriodico extends javax.swing.JDialog {
 
             String cantidadTexto = txtCant.getText().trim();
 
-            if (cantidadTexto.isEmpty()) {
+            if (cantidadTexto.isBlank()) {
 
                 JOptionPane.showMessageDialog(this,
                         "Faltan campos por rellenar");

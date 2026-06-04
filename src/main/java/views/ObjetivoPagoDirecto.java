@@ -221,7 +221,7 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
 
             String cantidadTexto = txtCantAportada.getText().trim();
 
-            if (cantidadTexto.isEmpty()) {
+            if (cantidadTexto.isBlank()) {
 
                 JOptionPane.showMessageDialog(this,
                         "Faltan campos por rellenar");
@@ -271,7 +271,7 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
         } catch (NumberFormatException nfe) {
 
             JOptionPane.showMessageDialog(this,
-                    "Error: OPD ");
+                    "Error: puede ser que metieras , en vez de . OPD ");
 
         } catch (IllegalArgumentException e) {
 

@@ -359,7 +359,7 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
                 String nuevaPass = JOptionPane.showInputDialog(this,
                         "Introduce la nueva contraseña");
 
-                if (nuevaPass == null || nuevaPass.trim().isEmpty()) {
+                if (nuevaPass == null || nuevaPass.isBlank()) {
 
                     throw new IllegalArgumentException(
                             "Debes introducir una contraseña");
@@ -442,18 +442,11 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
             String direccion = txtDir.getText().trim();
             String telefono = txtTele.getText().trim();
             String email = txtEmail.getText().trim();
-            // TODO
-            // TODO
-            // TODO
-            // TODO
-            // TODO
-            // TODO
-            String pass = btnPass.getText().trim();
             String cuentaBanco = txtCuentaVExt.getText().trim();
 
-            if (nombre.isEmpty() || ape1.isEmpty() || ape2.isEmpty()
-                    || dni.isEmpty() || direccion.isEmpty() || telefono.isEmpty()
-                    || email.isEmpty() || cuentaBanco.isEmpty()) {
+            if (nombre.isBlank()|| ape1.isBlank() || ape2.isBlank()
+                    || dni.isBlank() || direccion.isBlank() || telefono.isBlank()
+                    || email.isBlank() || cuentaBanco.isBlank()) {
 
                 JOptionPane.showMessageDialog(this,
                         "Faltan campos por rellenar");

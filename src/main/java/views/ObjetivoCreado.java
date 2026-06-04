@@ -264,8 +264,8 @@ public class ObjetivoCreado extends javax.swing.JDialog {
                         String cantidadTotalTexto = txtCantTotal.getText().trim();
                         String cantidadPeriodoTexto = txtCantM.getText().trim();
 
-                        if (nombre.isEmpty() || descripcion.isEmpty()
-                                        || cantidadTotalTexto.isEmpty() || cantidadPeriodoTexto.isEmpty()) {
+                        if (nombre.isBlank() || descripcion.isBlank()
+                                        || cantidadTotalTexto.isBlank() || cantidadPeriodoTexto.isBlank()) {
 
                                 JOptionPane.showMessageDialog(this,
                                                 "Faltan campos por rellenar");

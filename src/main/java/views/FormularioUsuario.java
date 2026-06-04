@@ -175,10 +175,10 @@ public class FormularioUsuario extends javax.swing.JDialog {
             String pass = txtPass.getText().trim();
             String cuentaVinculada = txtCuentaVExt.getText().trim();
 
-            if (nombre.isEmpty() || ape1.isEmpty() || ape2.isEmpty()
-                    || dni.isEmpty() || direccion.isEmpty() || telefono.isEmpty()
-                    || email.isEmpty() || pass.isEmpty()
-                    || cuentaVinculada.isEmpty()) {
+            if (nombre.isBlank() || ape1.isBlank() || ape2.isBlank()
+                    || dni.isBlank() || direccion.isBlank() || telefono.isBlank()
+                    || email.isBlank() || pass.isBlank()
+                    || cuentaVinculada.isBlank()) {
 
                 throw new IllegalArgumentException("Faltan campos por rellenar");
 
