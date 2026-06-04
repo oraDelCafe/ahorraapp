@@ -80,8 +80,8 @@ public class DetalleObjetivoProgramado implements Serializable {
 
     public DetalleObjetivoProgramado(
             Integer codDetalleObjetivosDetprog, LocalDate fechaIniDetprog,
-            Double cantidadFijaDetprog,  LocalDate fechaFinDetprog,
-            TipoPeriodicidad periodicidadDetprog, CuentaApp codCuentasAppDetprog, 
+            Double cantidadFijaDetprog, LocalDate fechaFinDetprog,
+            TipoPeriodicidad periodicidadDetprog, CuentaApp codCuentasAppDetprog,
             Objetivo codObjetivosDetprog) {
         this.codDetalleObjetivosDetprog = codDetalleObjetivosDetprog;
         this.fechaIniDetprog = java.sql.Date.valueOf(fechaIniDetprog);
@@ -105,8 +105,6 @@ public class DetalleObjetivoProgramado implements Serializable {
         this.codCuentasAppDetprog = codCuentasAppDetprog;
         this.codObjetivosDetprog = codObjetivosDetprog;
     }
-
-    
 
     public Integer getCodDetalleObjetivosDetprog() {
         return codDetalleObjetivosDetprog;
@@ -137,7 +135,7 @@ public class DetalleObjetivoProgramado implements Serializable {
     }
 
     public void setFechaInactividadDetprog(LocalDate fechaInactividadDetprog) {
-        this.fechaInactividadDetprog = java.sql.Date.valueOf(fechaInactividadDetprog); 
+        this.fechaInactividadDetprog = java.sql.Date.valueOf(fechaInactividadDetprog);
     }
 
     public Date getFechaFinDetprog() {
