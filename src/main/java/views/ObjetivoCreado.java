@@ -39,11 +39,10 @@ public class ObjetivoCreado extends javax.swing.JDialog {
         this.usuario = usuario;
         this.cuentaApp = cuentaApp;
 
-        jCPeriodo.removeAllItems();
+        txtFechIni.setText(LocalDate.now().toString());
+        txtFechIni.setEditable(true);
 
-        for (TipoPeriodicidad tipo : TipoPeriodicidad.values()) {
-            jCPeriodo.addItem(tipo.toString());
-        }
+        cargarDatosPeriodo();
 
     }
 
@@ -253,6 +252,14 @@ public class ObjetivoCreado extends javax.swing.JDialog {
 
                 } else {
 
+                    LocalDate fechaInicio = LocalDate.parse(txtFechIni.getText());
+
+                    if (fechaInicio.isBefore(LocalDate.now())) {
+
+                        throw new IllegalArgumentException(
+                                "La fecha no puede ser anterior a hoy");
+                    }
+
                     TipoPeriodicidad periodo = TipoPeriodicidad.valueOf(jCPeriodo.getSelectedItem().toString());
 
                     LocalDate fechaFin = calcularFechaFin(
@@ -270,7 +277,7 @@ public class ObjetivoCreado extends javax.swing.JDialog {
                     ServicioObjetivo.crearObjetivo(objetivo);
 
                     DetalleObjetivoProgramado detalle = new DetalleObjetivoProgramado(
-                            LocalDate.now(),
+                            fechaInicio,
                             cantidadPeriodo,
                             fechaFin,
                             periodo,
@@ -311,6 +318,14 @@ public class ObjetivoCreado extends javax.swing.JDialog {
             }
         }
         return fechaFin;
+    }
+
+    private void cargarDatosPeriodo() {
+        jCPeriodo.removeAllItems();
+
+        for (TipoPeriodicidad tipo : TipoPeriodicidad.values()) {
+            jCPeriodo.addItem(tipo.toString());
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

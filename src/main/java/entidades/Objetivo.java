@@ -222,14 +222,7 @@ public void removeDetalleObjetivoPuntual(
 
     @Override
     public String toString() {
-        return "Objetivo{" +
-                "codObjetivos=" + codObjetivos +
-                ", nombreObj=" + nombreObj +
-                ", cantidadObj=" + cantidadObj +
-                ", descipObj=" + descipObj +
-                ", cantConseObj=" + cantConseObj +
-                '}';
+        return nombreObj;
     }
-
     
 }

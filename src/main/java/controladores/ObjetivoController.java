@@ -58,6 +58,25 @@ public class ObjetivoController {
         }
     }
 
+    public List<Objetivo> findObjetivosUsuario(Integer idUsuario) {
+
+        EntityManager em = getEntityManager();
+
+        try {
+
+            return em.createQuery(
+                    "SELECT o FROM Objetivo o "
+                            + "WHERE o.codUsuariosObj.codUsuarios = :idUsuario",
+                    Objetivo.class)
+                    .setParameter("idUsuario", idUsuario)
+                    .getResultList();
+
+        } finally {
+
+            em.close();
+        }
+    }
+
     /**
      * Obtiene todos los objetivos.
      */

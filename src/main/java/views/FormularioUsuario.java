@@ -220,25 +220,23 @@ public class FormularioUsuario extends javax.swing.JDialog {
                     || email.isEmpty() || pass.isEmpty()
                     || cuentaVinculada.isEmpty()) {
 
-                javax.swing.JOptionPane.showMessageDialog(this,
-                        "Faltan campos por rellenar");
+                throw new IllegalArgumentException("Faltan campos por rellenar");
 
-            } else {
-
-                Usuario usuario = new Usuario(nombre, ape1, ape2, pass, email, dni, direccion, telefono);
-
-                ServicioUsuario.crearUsuario(usuario);
-
-                CuentaApp cuenta = new CuentaApp(usuario, 0.0, LocalDate.now(), cuentaVinculada);
-
-                ServicioCuentaApp.crearCuentaApp(cuenta);
-
-                javax.swing.JOptionPane.showMessageDialog(this,
-                        "Usuario creado correctamente");
-
-                this.dispose();
             }
-            
+
+            Usuario usuario = new Usuario(nombre, ape1, ape2, pass, email, dni, direccion, telefono);
+
+            ServicioUsuario.crearUsuario(usuario);
+
+            CuentaApp cuenta = new CuentaApp(usuario, 0.0, LocalDate.now(), cuentaVinculada);
+
+            ServicioCuentaApp.crearCuentaApp(cuenta);
+
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Usuario creado correctamente");
+
+            this.dispose();
+
         } catch (Exception e) {
 
             javax.swing.JOptionPane.showMessageDialog(this,

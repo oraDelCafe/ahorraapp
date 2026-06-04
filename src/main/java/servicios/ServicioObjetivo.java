@@ -1,6 +1,7 @@
 package servicios;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import controladores.ObjetivoController;
 import entidades.Objetivo;
@@ -45,6 +46,10 @@ public class ServicioObjetivo {
     public static Objetivo buscarObjetivo(Integer id) {
         return objetivoController.findById(id);
     }
+
+    public static List<Objetivo> buscarObjetivosUsuario(Integer idUsuario) {
+    return objetivoController.findObjetivosUsuario(idUsuario);
+}
 
     public static void actualizarObjetivo(Objetivo objetivo) {
         objetivoController.update(objetivo);

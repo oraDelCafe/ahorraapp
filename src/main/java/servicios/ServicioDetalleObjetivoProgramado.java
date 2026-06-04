@@ -47,6 +47,10 @@ public class ServicioDetalleObjetivoProgramado {
         return detalleController.findById(id);
     }
 
+    public static DetalleObjetivoProgramado buscarDetallePorObjetivo(Integer idObjetivo) {
+        return detalleController.findDetallePorObjetivo(idObjetivo);
+    }
+
     public static void actualizarDetalleObjetivoProgramado(DetalleObjetivoProgramado detalle) {
         detalleController.update(detalle);
     }

@@ -98,6 +98,34 @@ public class DetalleObjetivoProgramadoController {
         }
     }
 
+    public DetalleObjetivoProgramado findDetallePorObjetivo(Integer idObjetivo) {
+
+        EntityManager em = getEntityManager();
+
+        try {
+
+            List<DetalleObjetivoProgramado> lista = em.createQuery(
+                    "SELECT d FROM DetalleObjetivoProgramado d "
+                            + "WHERE d.codObjetivosDetprog.codObjetivos = :idObjetivo",
+                    DetalleObjetivoProgramado.class)
+                    .setParameter("idObjetivo", idObjetivo)
+                    .getResultList();
+
+            if (lista.isEmpty()) {
+
+                return null;
+
+            } else {
+
+                return lista.get(0);
+            }
+
+        } finally {
+
+            em.close();
+        }
+    }
+
     /**
      * Elimina un detalle.
      */
@@ -108,8 +136,7 @@ public class DetalleObjetivoProgramadoController {
         try {
             tx.begin();
 
-            DetalleObjetivoProgramado detalle =
-                    em.find(DetalleObjetivoProgramado.class, id);
+            DetalleObjetivoProgramado detalle = em.find(DetalleObjetivoProgramado.class, id);
 
             if (detalle != null) {
                 em.remove(detalle);

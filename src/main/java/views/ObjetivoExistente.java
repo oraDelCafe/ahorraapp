@@ -4,8 +4,16 @@
  */
 package views;
 
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import entidades.CuentaApp;
+import entidades.DetalleObjetivoProgramado;
+import entidades.Objetivo;
 import entidades.Usuario;
+import servicios.ServicioDetalleObjetivoProgramado;
+import servicios.ServicioObjetivo;
 
 /**
  *
@@ -14,7 +22,7 @@ import entidades.Usuario;
 public class ObjetivoExistente extends javax.swing.JDialog {
 
     private Usuario usuario;
-    private CuentaApp cuentaApp;
+    private CuentaApp cuenta;
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger
             .getLogger(ObjetivoExistente.class.getName());
@@ -28,7 +36,9 @@ public class ObjetivoExistente extends javax.swing.JDialog {
         setVisible(true);
 
         this.usuario = usuario;
-        this.cuentaApp = cuentaApp;
+        this.cuenta = cuentaApp;
+
+        cargarDatosObjetivosTabla();
     }
 
     /**
@@ -153,24 +163,77 @@ public class ObjetivoExistente extends javax.swing.JDialog {
 
     private void btnPagoPuntActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnPagoPuntActionPerformed
         // TODO add your handling code here:
-        ObjetivoPagoDirecto u = new ObjetivoPagoDirecto((java.awt.Frame) this.getParent(), true);
+        ObjetivoPagoDirecto u = new ObjetivoPagoDirecto((java.awt.Frame) this.getParent(), true, usuario, cuenta);
+        u.setVisible(true);
+        u.setLocationRelativeTo(null);
     }// GEN-LAST:event_btnPagoPuntActionPerformed
 
     private void btnCambiarIngresoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCambiarIngresoActionPerformed
         // TODO add your handling code here:
-        ObjetivoCambiarIngresoPeriodico u = new ObjetivoCambiarIngresoPeriodico((java.awt.Frame) this.getParent(),
-                true);
+        ObjetivoCambiarIngresoPeriodico u = new ObjetivoCambiarIngresoPeriodico((java.awt.Frame) this.getParent(), true,
+                usuario, cuenta);
+
+        u.setVisible(true);
+        u.setLocationRelativeTo(null);
 
     }// GEN-LAST:event_btnCambiarIngresoActionPerformed
 
     private void btnInactivoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnInactivoActionPerformed
         // TODO add your handling code here:
-        ObjetivoActivarDesactivar u = new ObjetivoActivarDesactivar((java.awt.Frame) this.getParent(), true);
+        ObjetivoActivarDesactivar u = new ObjetivoActivarDesactivar((java.awt.Frame) this.getParent(), true, usuario,
+                cuenta);
+        u.setVisible(true);
+        u.setLocationRelativeTo(null);
     }// GEN-LAST:event_btnInactivoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    // metodos
+
+    private String[] anadirColumnas() {
+
+        String[] columnas = {
+                "Nombre", "Cantidad total", "Cantidad actual", "Cantidad fija", "Fecha inicio", "Fecha fin",
+                "Activo"
+        };
+
+        return columnas;
+    }
+
+    private void cargarDatosObjetivosTabla() {
+
+        try {
+
+            ModeloTabla modelo = new ModeloTabla(anadirColumnas(), 0);
+
+            List<Objetivo> lista = ServicioObjetivo.buscarObjetivosUsuario(usuario.getCodUsuarios());
+
+            for (Objetivo objetivo : lista) {
+
+                DetalleObjetivoProgramado detalle = ServicioDetalleObjetivoProgramado.buscarDetallePorObjetivo(
+                        objetivo.getCodObjetivos());
+
+                Object[] fila = {
+                        objetivo.getNombreObj(),
+                        objetivo.getCantidadObj(),
+                        objetivo.getCantConseObj(),
+                        detalle.getCantidadFijaDetprog(),
+                        detalle.getFechaIniDetprog(),
+                        detalle.getFechaFinDetprog(),
+                        detalle.getFechaInactividadDetprog() != null
+                                ? "No activo"
+                                : "Activo"
+                };
+
+                modelo.addRow(fila);
+            }
+
+            jTable1.setModel(modelo);
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Error: " + e.getMessage());
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCambiarIngreso;
