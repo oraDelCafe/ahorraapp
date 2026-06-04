@@ -23,8 +23,8 @@ public class FormularioUsuario extends javax.swing.JDialog {
     public FormularioUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setLocationRelativeTo(null);
-        setVisible(true);
+        
+        
     }
 
     /**

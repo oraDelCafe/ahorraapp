@@ -27,8 +27,8 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
         public GestionDatosUsuario(java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
                 super(parent, modal);
                 initComponents();
-                setLocationRelativeTo(null);
-                setVisible(true);
+                
+                
 
                 this.usuario = usuario;
                 this.cuenta = cuentaApp;

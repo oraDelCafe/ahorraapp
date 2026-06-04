@@ -27,8 +27,8 @@ public class Transferencias extends javax.swing.JDialog {
                         java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuenta) {
                 super(parent, modal);
                 initComponents();
-                setLocationRelativeTo(null);
-                setVisible(true);
+                
+                
 
                 this.usuario = usuario;
                 this.cuenta = cuenta;

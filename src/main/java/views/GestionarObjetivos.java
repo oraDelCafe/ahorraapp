@@ -25,7 +25,7 @@ public class GestionarObjetivos extends javax.swing.JDialog {
         public GestionarObjetivos(java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
                 super(parent, modal);
                 initComponents();
-                setLocationRelativeTo(null);
+                
 
                 this.usuario = usuario;
                 this.cuenta = cuentaApp;

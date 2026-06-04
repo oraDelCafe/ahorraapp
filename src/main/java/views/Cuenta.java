@@ -29,8 +29,7 @@ public class Cuenta extends javax.swing.JDialog {
             java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
         super(parent, modal);
         initComponents();
-        setVisible(true);
-        setLocationRelativeTo(null);
+        
 
         this.usuario = usuario;
         this.cuenta = cuentaApp;

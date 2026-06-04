@@ -33,8 +33,8 @@ public class HacerTransferencia extends javax.swing.JDialog {
 
                 super(parent, modal);
                 initComponents();
-                setLocationRelativeTo(null);
-                setVisible(true);
+                
+                
 
                 this.usuario = usuario;
                 this.cuenta = cuentaApp;

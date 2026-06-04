@@ -30,8 +30,9 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
     public ObjetivoPagoDirecto(java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
         super(parent, modal);
         initComponents();
-        setLocationRelativeTo(null);
-        setVisible(true);
+        
+        
+        
         this.usuario = usuario;
         this.cuenta = cuentaApp;
 
