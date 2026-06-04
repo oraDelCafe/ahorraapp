@@ -6,6 +6,7 @@ package views;
 
 import entidades.CuentaApp;
 import entidades.Usuario;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -39,12 +40,10 @@ public class ObjetivoCreado extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLtxtFechfin = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtCantTotal = new javax.swing.JTextField();
+        txtDescripcion = new javax.swing.JTextField();
         txtCantM = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         txtFechIni = new javax.swing.JTextField();
         btnCrear = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
@@ -65,17 +64,13 @@ public class ObjetivoCreado extends javax.swing.JDialog {
 
         jLabel6.setText("Fecha inicio:");
 
-        jLabel7.setText("Fecha fin:");
-
-        jLtxtFechfin.setText("jLabel8");
-
         txtNombre.addActionListener(this::txtNombreActionPerformed);
 
         txtCantTotal.addActionListener(this::txtCantTotalActionPerformed);
 
-        txtCantM.addActionListener(this::txtCantMActionPerformed);
+        txtDescripcion.addActionListener(this::txtDescripcionActionPerformed);
 
-        jTextField4.addActionListener(this::jTextField4ActionPerformed);
+        txtCantM.addActionListener(this::txtCantMActionPerformed);
 
         txtFechIni.addActionListener(this::txtFechIniActionPerformed);
 
@@ -87,7 +82,7 @@ public class ObjetivoCreado extends javax.swing.JDialog {
 
         jLabel9.setText("Periodo:");
 
-        jCPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "pepe 1", "nada 2", "manolos 3", "Item 4" }));
+        jCPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jCPeriodo.addActionListener(this::jCPeriodoActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -103,13 +98,9 @@ public class ObjetivoCreado extends javax.swing.JDialog {
                         .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnCrear)
-                                    .addComponent(jLabel7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLtxtFechfin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnCrear)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                                .addComponent(btnSalir))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
@@ -128,8 +119,8 @@ public class ObjetivoCreado extends javax.swing.JDialog {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNombre)
                                     .addComponent(txtCantTotal)
-                                    .addComponent(txtCantM)
-                                    .addComponent(jTextField4))))))
+                                    .addComponent(txtDescripcion)
+                                    .addComponent(txtCantM))))))
                 .addGap(82, 82, 82))
         );
         jPanel1Layout.setVerticalGroup(
@@ -153,10 +144,10 @@ public class ObjetivoCreado extends javax.swing.JDialog {
                                     .addComponent(txtCantTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(26, 26, 26)
                                 .addComponent(jLabel4))
-                            .addComponent(txtCantM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5))
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCantM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
@@ -165,11 +156,7 @@ public class ObjetivoCreado extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jCPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLtxtFechfin))
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrear)
                     .addComponent(btnSalir))
@@ -192,36 +179,15 @@ public class ObjetivoCreado extends javax.swing.JDialog {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnCrearActionPerformed
 
-    private void txtFechIniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechIniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechIniActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void txtCantMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantMActionPerformed
-
-    private void txtCantTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantTotalActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void jCPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCPeriodoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCPeriodoActionPerformed
-
+  
     
     
 
@@ -235,14 +201,36 @@ public class ObjetivoCreado extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLtxtFechfin;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField txtCantM;
     private javax.swing.JTextField txtCantTotal;
+    private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtFechIni;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
+    private void txtNombreActionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void txtCantTotalActionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void txtCantMActionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void txtFechIniActionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void txtDescripcionActionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void jCPeriodoActionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

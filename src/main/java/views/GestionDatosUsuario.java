@@ -97,41 +97,9 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
 
                 jLabel7.setText("Telefono:");
 
-                txtNombre.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtNombreActionPerformed(evt);
-                        }
-                });
+              
 
-                txtApe1.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtApe1ActionPerformed(evt);
-                        }
-                });
-
-                txtTele.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtTeleActionPerformed(evt);
-                        }
-                });
-
-                txtDir.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtDirActionPerformed(evt);
-                        }
-                });
-
-                txtApe2.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtApe2ActionPerformed(evt);
-                        }
-                });
-
-                txtDni.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtDniActionPerformed(evt);
-                        }
-                });
+                
 
                 btnModificar.setText("Modificar");
                 btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -149,19 +117,11 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
 
                 jLabel8.setText("Email :");
 
-                txtEmail.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtEmailActionPerformed(evt);
-                        }
-                });
+                
 
                 jLabel9.setText("Contraseña :");
 
-                txtPass.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtPassActionPerformed(evt);
-                        }
-                });
+                
 
                 jLNombre.setText("jLabel10");
 
@@ -183,11 +143,7 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
 
                 jLabel11.setText("Cuenta Vinculada ");
 
-                txtCuentaVExt.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtCuentaVExtActionPerformed(evt);
-                        }
-                });
+                
 
                 btnBorrar.setText("Borrar Usuario");
                 btnBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -492,30 +448,7 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
                 }
         }// GEN-LAST:event_btnBorrarActionPerformed
 
-        private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtNombreActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_txtNombreActionPerformed
-
-        private void txtApe1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtApe1ActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_txtApe1ActionPerformed
-
-        private void txtTeleActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtTeleActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_txtTeleActionPerformed
-
-        private void txtDirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtDirActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_txtDirActionPerformed
-
-        private void txtApe2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtApe2ActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_txtApe2ActionPerformed
-
-        private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtDniActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_txtDniActionPerformed
-
+      
         private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnModificarActionPerformed
                 // TODO add your handling code here:
                 try {
@@ -577,78 +510,7 @@ public class GestionDatosUsuario extends javax.swing.JDialog {
                 this.dispose();
         }// GEN-LAST:event_btnSalirActionPerformed
 
-        private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtEmailActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_txtEmailActionPerformed
-
-        private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtPassActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_txtPassActionPerformed
-
-        private void txtCuentaVExtActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtCuentaVExtActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_txtCuentaVExtActionPerformed
-
-        /**
-         * @param args the command line arguments
-         */
-        public static void main(String args[]) {
-                /* Set the Nimbus look and feel */
-                // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-                // (optional) ">
-                /*
-                 * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-                 * look and feel.
-                 * For details see
-                 * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-                 */
-                try {
-                        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
-                                        .getInstalledLookAndFeels()) {
-                                if ("Nimbus".equals(info.getName())) {
-                                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                                        break;
-                                }
-                        }
-                } catch (ClassNotFoundException ex) {
-                        java.util.logging.Logger.getLogger(GestionDatosUsuario.class.getName()).log(
-                                        java.util.logging.Level.SEVERE,
-                                        null, ex);
-                } catch (InstantiationException ex) {
-                        java.util.logging.Logger.getLogger(GestionDatosUsuario.class.getName()).log(
-                                        java.util.logging.Level.SEVERE,
-                                        null, ex);
-                } catch (IllegalAccessException ex) {
-                        java.util.logging.Logger.getLogger(GestionDatosUsuario.class.getName()).log(
-                                        java.util.logging.Level.SEVERE,
-                                        null, ex);
-                } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-                        java.util.logging.Logger.getLogger(GestionDatosUsuario.class.getName()).log(
-                                        java.util.logging.Level.SEVERE,
-                                        null, ex);
-                }
-                // </editor-fold>
-                // </editor-fold>
-
-                /*
-                 * /* Create and display the dialog
-                 * java.awt.EventQueue.invokeLater(new Runnable() {
-                 * public void run() {
-                 * GestionDatosUsuario dialog = new GestionDatosUsuario(new
-                 * javax.swing.JFrame(), true);
-                 * dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                 * 
-                 * @Override
-                 * public void windowClosing(java.awt.event.WindowEvent e) {
-                 * System.exit(0);
-                 * }
-                 * });
-                 * dialog.setVisible(true);
-                 * }
-                 * });
-                 * 
-                 */
-        }
+       
 
         // metodos
 

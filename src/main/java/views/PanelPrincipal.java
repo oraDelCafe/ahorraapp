@@ -159,6 +159,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 // TODO add your handling code here:
                 FormularioUsuario u = new FormularioUsuario(this, true);
                 u.setVisible(true);
+                u.setLocationRelativeTo(null);
 
         }// GEN-LAST:event_btnCrearUsuActionPerformed
 
@@ -185,10 +186,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
                                                 usuario.getCodUsuarios());
 
                                 Cuenta u = new Cuenta(
-                                                (java.awt.Frame) this.getParent(),true,usuario,cuentaApp
-                                                );
+                                                (java.awt.Frame) this.getParent(), true, usuario, cuentaApp);
 
                                 u.setVisible(true);
+                                u.setLocationRelativeTo(null);
                                 // cierro pantalla para al entrar a cuentas
                                 this.dispose();
                         }
