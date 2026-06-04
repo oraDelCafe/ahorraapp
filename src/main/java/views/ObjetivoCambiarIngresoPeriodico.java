@@ -31,8 +31,6 @@ public class ObjetivoCambiarIngresoPeriodico extends javax.swing.JDialog {
     public ObjetivoCambiarIngresoPeriodico(java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
         super(parent, modal);
         initComponents();
-        
-       
 
         this.usuario = usuario;
         this.cuentaApp = cuentaApp;
@@ -225,10 +223,15 @@ public class ObjetivoCambiarIngresoPeriodico extends javax.swing.JDialog {
                 }
             }
 
+        } catch (IllegalArgumentException e) {
+
+            JOptionPane.showMessageDialog(this,
+                    e.getMessage());
+
         } catch (Exception e) {
 
             JOptionPane.showMessageDialog(this,
-                    "Error: " + e.getMessage());
+                    "Ha ocurrido un error inesperado OBI ");
         }
     }// GEN-LAST:event_btnAceptarActionPerformed
 

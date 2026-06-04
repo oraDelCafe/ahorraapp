@@ -33,8 +33,6 @@ public class HacerTransferencia extends javax.swing.JDialog {
 
                 super(parent, modal);
                 initComponents();
-                
-                
 
                 this.usuario = usuario;
                 this.cuenta = cuentaApp;
@@ -298,10 +296,15 @@ public class HacerTransferencia extends javax.swing.JDialog {
                                 }
                         }
 
+                } catch (IllegalArgumentException e) {
+
+                        JOptionPane.showMessageDialog(this,
+                                        e.getMessage());
+
                 } catch (Exception e) {
 
                         JOptionPane.showMessageDialog(this,
-                                        "Error: " + e.getMessage());
+                                        "Ha ocurrido un error inesperado HT");
                 }
 
         }// GEN-LAST:event_btnAceptarActionPerformed

@@ -195,10 +195,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
                                 this.dispose();
                         }
 
+                } catch (IllegalArgumentException e) {
+
+                        JOptionPane.showMessageDialog(this,
+                                        e.getMessage());
+
                 } catch (Exception e) {
 
                         JOptionPane.showMessageDialog(this,
-                                        "Error: " + e.getMessage());
+                                        "Ha ocurrido un error inesperado PP ");
                 }
 
         }// GEN-LAST:event_btnAccederActionPerformed

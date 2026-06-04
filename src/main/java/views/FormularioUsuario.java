@@ -23,8 +23,7 @@ public class FormularioUsuario extends javax.swing.JDialog {
     public FormularioUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
-        
+
     }
 
     /**
@@ -87,46 +86,16 @@ public class FormularioUsuario extends javax.swing.JDialog {
         jLabel7.setText("Telefono:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 234, -1, -1));
 
-        tctNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tctNombreActionPerformed(evt);
-            }
-        });
         jPanel1.add(tctNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 50, 170, -1));
 
-        txtApe1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApe1ActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtApe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 84, 170, -1));
 
-        txtTele.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTeleActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtTele, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 229, 170, -1));
 
-        txtDir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDirActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 186, 170, -1));
 
-        txtApe2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApe2ActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtApe2, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 122, 170, -1));
 
-        txtDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDniActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 154, 170, -1));
 
         btnCrear.setText("Crear");
@@ -148,11 +117,6 @@ public class FormularioUsuario extends javax.swing.JDialog {
         jLabel8.setText("Contraseña :");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, -1));
 
         jLabel9.setText("Email :");
@@ -161,11 +125,6 @@ public class FormularioUsuario extends javax.swing.JDialog {
         jLabel10.setText("Email :");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 278, -1, -1));
 
-        txtEmail1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmail1ActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 273, 170, -1));
 
         jLabel11.setText("Cuenta Vinculada :");
@@ -238,46 +197,17 @@ public class FormularioUsuario extends javax.swing.JDialog {
 
             this.dispose();
 
+        } catch (IllegalArgumentException e) {
+
+            JOptionPane.showMessageDialog(this,
+                    e.getMessage());
+
         } catch (Exception e) {
 
-            javax.swing.JOptionPane.showMessageDialog(this,
-                    "Error: " + e.getMessage());
+            JOptionPane.showMessageDialog(this,
+                    "Ha ocurrido un error inesperado FU");
         }
     }// GEN-LAST:event_btnCrearActionPerformed
-
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtPassActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtPassActionPerformed
-
-    private void txtTeleActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtTeleActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtTeleActionPerformed
-
-    private void txtDirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtDirActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtDirActionPerformed
-
-    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtDniActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtDniActionPerformed
-
-    private void txtApe2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtApe2ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtApe2ActionPerformed
-
-    private void txtApe1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtApe1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtApe1ActionPerformed
-
-    private void tctNombreActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tctNombreActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_tctNombreActionPerformed
-
-    private void txtEmail1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtEmail1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtEmail1ActionPerformed
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrear;

@@ -108,10 +108,7 @@
                   <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnSalir" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtPass" pref="143" max="32767" attributes="0"/>
-                          <Component id="txtCuentaVExt" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="txtCuentaVExt" min="-2" pref="143" max="-2" attributes="0"/>
                       <Component id="txtEmail" min="-2" pref="143" max="-2" attributes="0"/>
                       <Component id="txtTele" min="-2" pref="143" max="-2" attributes="0"/>
                       <Component id="txtDir" min="-2" pref="143" max="-2" attributes="0"/>
@@ -119,6 +116,7 @@
                       <Component id="txtApe2" min="-2" pref="143" max="-2" attributes="0"/>
                       <Component id="txtApe1" min="-2" pref="143" max="-2" attributes="0"/>
                       <Component id="txtNombre" min="-2" pref="143" max="-2" attributes="0"/>
+                      <Component id="btnPass" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
@@ -175,9 +173,9 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLPass" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPass" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnPass" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLCuentaVExt" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -291,11 +289,6 @@
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPass">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPassActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLNombre">
           <Properties>
             <Property name="text" type="java.lang.String" value="jLabel10"/>
@@ -357,6 +350,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBorrarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnPass">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cambiar Contrase&#xf1;a"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPassActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

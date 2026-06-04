@@ -5,6 +5,9 @@
 package views;
 
 import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import entidades.CuentaApp;
 import entidades.Transferencia;
 import entidades.Usuario;
@@ -27,8 +30,6 @@ public class Transferencias extends javax.swing.JDialog {
                         java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuenta) {
                 super(parent, modal);
                 initComponents();
-                
-                
 
                 this.usuario = usuario;
                 this.cuenta = cuenta;
@@ -171,7 +172,7 @@ public class Transferencias extends javax.swing.JDialog {
                 u.setLocationRelativeTo(null);
         }// GEN-LAST:event_btnTransActionPerformed
 
-        //metodos
+        // metodos
         private String[] anadirColumnas() {
                 String[] columnas = { "Fecha", "Tipo", "Cantidad", "Concepto", "Cuenta vinculada" };
                 return columnas;
@@ -207,10 +208,15 @@ public class Transferencias extends javax.swing.JDialog {
 
                         jTable1.setModel(modelo);
 
+                } catch (IllegalArgumentException e) {
+
+                        JOptionPane.showMessageDialog(this,
+                                        e.getMessage());
+
                 } catch (Exception e) {
 
-                        javax.swing.JOptionPane.showMessageDialog(this,
-                                        "Error: " + e.getMessage());
+                        JOptionPane.showMessageDialog(this,
+                                        "Ha ocurrido un error inesperado T ");
                 }
         }
 

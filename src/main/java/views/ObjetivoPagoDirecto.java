@@ -30,9 +30,7 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
     public ObjetivoPagoDirecto(java.awt.Frame parent, boolean modal, Usuario usuario, CuentaApp cuentaApp) {
         super(parent, modal);
         initComponents();
-        
-        
-        
+
         this.usuario = usuario;
         this.cuenta = cuentaApp;
 
@@ -270,10 +268,20 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
                 }
             }
 
-        } catch (Exception e) {
+        } catch (NumberFormatException nfe) {
 
             JOptionPane.showMessageDialog(this,
-                    "Error: " + e.getMessage());
+                    "Error: OPD ");
+
+        } catch (IllegalArgumentException e) {
+
+            JOptionPane.showMessageDialog(this,
+                    e.getMessage());
+
+        }  catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Ha ocurrido un error inesperado OPD ");
         }
     }// GEN-LAST:event_btnAceptarActionPerformed
 
