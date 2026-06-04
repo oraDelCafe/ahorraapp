@@ -5,7 +5,6 @@ ahorrappVico se ha hizó en windows.
 Puede que al leerlo en linux de problemas 
 esta es la base de datos
 */
-
 /* crear base de datos 
 drop database ahorrappVico;
 */ 
@@ -51,7 +50,7 @@ CodCuentasApp
 constraint fk_usuarios_cuentasapp
 foreign key (CodUsuarios_cuentasapp)
 references Usuarios(CodUsuarios)
-on delete no action
+on delete cascade
 on update cascade
 
 );
@@ -103,7 +102,7 @@ primary key (CodObjetivos
 constraint fk_usuarios_objetivos
 foreign key (CodUsuarios_obj)
 references Usuarios(CodUsuarios)
-on delete no action
+on delete cascade
 on update cascade
 
 );
@@ -136,30 +135,27 @@ CodObjetivos_detprog
 constraint fk_cuentasapp_detalleprogramado
 foreign key (CodCuentasApp_detprog)
 references CuentasApp(CodCuentasApp)
-on delete no action
+on delete cascade
 on update cascade,
 
 constraint fk_objetivos_detalleprogramado
 foreign key (CodObjetivos_detprog)
 references Objetivos(CodObjetivos)
-on delete no action
+on delete cascade
 on update cascade
 
 ); 
 
 create table detalleObjetivoPuntual (
 
-CodObjetivos_detpunt int auto_increment,
+CodDetalleObjetivoPuntual int auto_increment,
+CodObjetivos_detpunt int not null,
 CodCuentasApp_detpunt int not null,
 cantidad_detpunt decimal(11,2) unsigned not null, 
 fecha_detpunt datetime not null, --  controlo fecha y hora
 -- pk 
 constraint pk_detalleobjetivopuntual
-primary key (
-CodObjetivos_detpunt,
-CodCuentasApp_detpunt,
-fecha_detpunt
-),
+primary key (CodDetalleObjetivoPuntual),
 -- fk 
 constraint fk_cuentasapp_detallepuntual
 foreign key (CodCuentasApp_detpunt)
@@ -170,10 +166,12 @@ on update cascade,
 constraint fk_objetivos_detallepuntual
 foreign key (CodObjetivos_detpunt)
 references Objetivos(CodObjetivos)
-on delete no action
+on delete cascade
 on update cascade
 
 );
+
+
 
 */
 -->
