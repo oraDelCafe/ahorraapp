@@ -35,7 +35,7 @@ public class Cuenta extends javax.swing.JDialog {
 
                 jLNombreUsu.setText(usuario.getNombreUsu() + " " + usuario.getApe1Usu());
 
-                cargarDatosCuentaTabla();
+                cargarDatosCuentaTabla(anadirColumnas());
         }
 
         /**
@@ -215,6 +215,10 @@ public class Cuenta extends javax.swing.JDialog {
                 Transferencias u = new Transferencias((java.awt.Frame) this.getParent(), true, usuario, cuenta);
                 u.setLocationRelativeTo(null);
                 u.setVisible(true);
+
+                cuenta = ServicioCuentaApp.buscarCuentaUsuario(usuario.getCodUsuarios());
+
+                cargarDatosCuentaTabla(anadirColumnas());
         }// GEN-LAST:event_btnTransActionPerformed
 
         private void btnDatosUsuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDatosUsuActionPerformed
@@ -227,12 +231,12 @@ public class Cuenta extends javax.swing.JDialog {
 
         // metodos
 
-        private String[] anadirColumnas() {
+        public static String[] anadirColumnas() {
                 String[] columnas = { "Saldo", "Fecha cuenta" };
                 return columnas;
         }
 
-        private void cargarDatosCuentaTabla() {
+        public void cargarDatosCuentaTabla(String[] anadirColumnas) {
 
                 try {
                         // añade columnas y las filas iniciales

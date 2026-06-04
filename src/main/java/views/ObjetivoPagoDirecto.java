@@ -4,14 +4,17 @@
  */
 package views;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
 import entidades.CuentaApp;
+import entidades.DetalleObjetivoProgramado;
 import entidades.Objetivo;
 import entidades.Usuario;
 import servicios.ServicioCuentaApp;
+import servicios.ServicioDetalleObjetivoProgramado;
 import servicios.ServicioObjetivo;
 
 /**
@@ -253,6 +256,18 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
 
                     objetivo.setCantConseObj(objetivo.getCantConseObj() + cantidadAportada);
 
+                    if (objetivo.getCantConseObj() >= objetivo.getCantidadObj()) {
+
+                        DetalleObjetivoProgramado detalle = ServicioDetalleObjetivoProgramado.buscarDetallePorObjetivo(
+                                objetivo.getCodObjetivos());
+
+                        detalle.setFechaInactividadDetprog(LocalDate.now());
+
+                        detalle.setCantidadFijaDetprog(0.0);
+
+                        ServicioDetalleObjetivoProgramado.actualizarDetalleObjetivoProgramado(detalle);
+                    }
+
                     cuenta.setSaldoCuentas(cuenta.getSaldoCuentas() - cantidadAportada);
 
                     ServicioObjetivo.actualizarObjetivo(objetivo);
@@ -268,17 +283,17 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
                 }
             }
 
-        } catch (NumberFormatException nfe) {
+        } catch (NumberFormatException e) {
 
             JOptionPane.showMessageDialog(this,
-                    "Error: puede ser que metieras , en vez de . OPD ");
+                    "Introduce un numero . decimales");
 
         } catch (IllegalArgumentException e) {
 
             JOptionPane.showMessageDialog(this,
                     e.getMessage());
 
-        }  catch (Exception e) {
+        } catch (Exception e) {
 
             JOptionPane.showMessageDialog(this,
                     "Ha ocurrido un error inesperado OPD ");

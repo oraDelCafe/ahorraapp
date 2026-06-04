@@ -4,6 +4,8 @@
  */
 package views;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -161,14 +163,18 @@ public class Transferencias extends javax.swing.JDialog {
 
         private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSalirActionPerformed
                 // TODO add your handling code here:
+                
                 this.dispose();
         }// GEN-LAST:event_btnSalirActionPerformed
 
         private void btnTransActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnTransActionPerformed
                 // TODO add your handling code here:
                 HacerTransferencia u = new HacerTransferencia((java.awt.Frame) this.getParent(), true, usuario, cuenta);
-                u.setVisible(true);
                 u.setLocationRelativeTo(null);
+                u.setVisible(true);
+
+                cargarDatosTransferenciasTabla();
+                
         }// GEN-LAST:event_btnTransActionPerformed
 
         // metodos
@@ -190,18 +196,35 @@ public class Transferencias extends javax.swing.JDialog {
 
                                 List<Transferencia> lista = ServicioTransferencia.buscarTransferenciasCuenta(
                                                 cuenta.getCodCuentasApp());
+                                
+                                SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 
-                                for (Transferencia transferencia : lista) {
+                                if (lista.isEmpty()) {
 
                                         Object[] fila = {
-                                                        transferencia.getFechaTrans(),
-                                                        transferencia.getTipoTrans(),
-                                                        transferencia.getCantidadTrans(),
-                                                        transferencia.getConceptoTrans(),
-                                                        cuenta.getCuentaBancoExterna()
+                                                        "No ",
+                                                        " hay ",
+                                                        " transferencias ",
+                                                        " a dia ",
+                                                        " de hoy "
                                         };
 
                                         modelo.addRow(fila);
+
+                                } else {
+
+                                        for (Transferencia transferencia : lista) {
+
+                                                Object[] fila = {
+                                                                formato.format(transferencia.getFechaTrans()),
+                                                                transferencia.getTipoTrans(),
+                                                                transferencia.getCantidadTrans(),
+                                                                transferencia.getConceptoTrans(),
+                                                                cuenta.getCuentaBancoExterna()
+                                                };
+
+                                                modelo.addRow(fila);
+                                        }
                                 }
                         }
 
@@ -217,6 +240,7 @@ public class Transferencias extends javax.swing.JDialog {
                         JOptionPane.showMessageDialog(this,
                                         "Ha ocurrido un error inesperado T ");
                 }
+
         }
 
         // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,6 +4,7 @@
  */
 package views;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -188,6 +189,8 @@ public class ObjetivoExistente extends javax.swing.JDialog {
                                 cuenta);
                 u.setLocationRelativeTo(null);
                 u.setVisible(true);
+
+                cargarDatosObjetivosTabla();
         }// GEN-LAST:event_btnPagoPuntActionPerformed
 
         private void btnCambiarIngresoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCambiarIngresoActionPerformed
@@ -199,6 +202,8 @@ public class ObjetivoExistente extends javax.swing.JDialog {
                 u.setLocationRelativeTo(null);
                 u.setVisible(true);
 
+                cargarDatosObjetivosTabla();
+
         }// GEN-LAST:event_btnCambiarIngresoActionPerformed
 
         private void btnInactivoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnInactivoActionPerformed
@@ -208,6 +213,8 @@ public class ObjetivoExistente extends javax.swing.JDialog {
                                 cuenta);
                 u.setLocationRelativeTo(null);
                 u.setVisible(true);
+
+                cargarDatosObjetivosTabla();
         }// GEN-LAST:event_btnInactivoActionPerformed
 
         // metodos
@@ -226,11 +233,12 @@ public class ObjetivoExistente extends javax.swing.JDialog {
         private void cargarDatosObjetivosTabla() {
 
                 try {
-                        String mensaje = "No existen actualmente";
 
                         ModeloTabla modelo = new ModeloTabla(anadirColumnas(), 0);
 
                         List<Objetivo> lista = ServicioObjetivo.buscarObjetivosUsuario(usuario.getCodUsuarios());
+
+                        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 
                         for (Objetivo objetivo : lista) {
 
@@ -238,19 +246,19 @@ public class ObjetivoExistente extends javax.swing.JDialog {
                                                 .buscarDetallePorObjetivo(
                                                                 objetivo.getCodObjetivos());
 
-                                        Object[] fila = {
-                                                        objetivo.getNombreObj(),
-                                                        objetivo.getCantidadObj(),
-                                                        objetivo.getCantConseObj(),
-                                                        detalle.getCantidadFijaDetprog(),
-                                                        detalle.getFechaIniDetprog(),
-                                                        detalle.getFechaFinDetprog(),
-                                                        detalle.getFechaInactividadDetprog() != null
-                                                                        ? "No activo"
-                                                                        : "Activo"
-                                        };
-                                        modelo.addRow(fila);
-                                    
+                                Object[] fila = {
+                                                objetivo.getNombreObj(),
+                                                objetivo.getCantidadObj(),
+                                                objetivo.getCantConseObj(),
+                                                detalle.getCantidadFijaDetprog(),
+                                                formato.format(detalle.getFechaIniDetprog()),
+                                                formato.format(detalle.getFechaFinDetprog()),
+                                                detalle.getFechaInactividadDetprog() != null
+                                                                ? "No activo"
+                                                                : "Activo"
+                                };
+                                modelo.addRow(fila);
+
                         }
 
                         jTable1.setModel(modelo);

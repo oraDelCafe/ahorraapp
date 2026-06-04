@@ -94,7 +94,7 @@ public class Usuario implements Serializable {
         }
 
         if (!comprobarPassPatron(pass)) {
-            throw new IllegalArgumentException("Contraseña incorrecta");
+            throw new IllegalArgumentException("Contraseña tiene que contener al menos 5 digitos con 2 numeros");
         }
 
         this.nombreUsu = nombreUsu;
@@ -274,7 +274,7 @@ public class Usuario implements Serializable {
     public void setPass(String pass) {
 
         if (!comprobarPass(this.pass, pass)) {
-            throw new IllegalArgumentException("Contraseña incorrecta");
+            throw new IllegalArgumentException("Contraseña tiene que contener al menos 5 digitos con 2 numeros");
         }
 
         this.pass = pass;

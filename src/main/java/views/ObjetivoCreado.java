@@ -325,6 +325,11 @@ public class ObjetivoCreado extends javax.swing.JDialog {
                                 }
                         }
 
+                }catch (NumberFormatException e) {
+
+                        JOptionPane.showMessageDialog(this,
+                                        "Introduce un numero . decimales");
+
                 } catch (IllegalArgumentException e) {
 
                         JOptionPane.showMessageDialog(this,

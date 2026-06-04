@@ -38,11 +38,8 @@ public class HacerTransferencia extends javax.swing.JDialog {
                 this.cuenta = cuentaApp;
 
                 jLSaldo.setText(cuenta.getSaldoCuentas().toString());
-                // pongo tipo de transferencia en el combobox
-                for (TipoTransferencia tipo : TipoTransferencia.values()) {
 
-                        jCTipoTrans.addItem(String.valueOf(tipo));
-                }
+                
         }
 
         /**
@@ -296,6 +293,11 @@ public class HacerTransferencia extends javax.swing.JDialog {
                                 }
                         }
 
+                }catch (NumberFormatException e) {
+
+                        JOptionPane.showMessageDialog(this,
+                                        "Introduce un numero . decimales");
+
                 } catch (IllegalArgumentException e) {
 
                         JOptionPane.showMessageDialog(this,
@@ -344,6 +346,8 @@ public class HacerTransferencia extends javax.swing.JDialog {
                 }
 
         }
+
+        
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
         private javax.swing.JButton btnAceptar;

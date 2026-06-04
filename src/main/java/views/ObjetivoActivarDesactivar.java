@@ -35,6 +35,8 @@ public class ObjetivoActivarDesactivar extends javax.swing.JDialog {
 
                 this.usuario = usuario;
                 this.cuentaApp = cuentaApp;
+
+                cargarComboObjetivos();
         }
 
         /**

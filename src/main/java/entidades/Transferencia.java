@@ -72,7 +72,7 @@ public class Transferencia implements Serializable {
     public Transferencia(
             LocalDate fechaTrans, TipoTransferencia tipoTrans,
             Double cantidadTrans, String conceptoTrans,
-            String codigoTransaccion,CuentaApp codCuentasTrans) {
+            String codigoTransaccion, CuentaApp codCuentasTrans) {
         this.fechaTrans = java.sql.Date.valueOf(fechaTrans);
         this.tipoTrans = tipoTrans;
         this.cantidadTrans = cantidadTrans;
@@ -81,8 +81,6 @@ public class Transferencia implements Serializable {
         this.codCuentasTrans = codCuentasTrans;
     }
 
-    
-
     public Integer getCodTransferencia() {
         return codTransferencia;
     }
@@ -90,15 +88,15 @@ public class Transferencia implements Serializable {
     public void setCodTransferencia(Integer codTransferencia) {
         this.codTransferencia = codTransferencia;
     }
-    /**
-     * Este devuelve Date no LocalDate 
-     */
+
     public Date getFechaTrans() {
-        return fechaTrans;
+
+        return fechaTrans; 
     }
 
     public void setFechaTrans(LocalDate fechaTrans) {
-        this.fechaTrans = java.sql.Date.valueOf(fechaTrans);;
+        this.fechaTrans = java.sql.Date.valueOf(fechaTrans);
+        ;
     }
 
     public TipoTransferencia getTipoTrans() {
