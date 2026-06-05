@@ -193,6 +193,7 @@ public class Cuenta extends javax.swing.JDialog {
                 u.setLocationRelativeTo(null);
                 u.setVisible(true);
 
+                cargarDatosCuentaTabla(anadirColumnas());
         }// GEN-LAST:event_bntGestionarObjActionPerformed
 
         private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSalirActionPerformed
@@ -227,6 +228,8 @@ public class Cuenta extends javax.swing.JDialog {
                                 cuenta);
                 u.setLocationRelativeTo(null);
                 u.setVisible(true);
+
+                jLNombreUsu.setText(usuario.getNombreUsu() + " " + usuario.getApe1Usu());
         }// GEN-LAST:event_btnDatosUsuActionPerformed
 
         // metodos

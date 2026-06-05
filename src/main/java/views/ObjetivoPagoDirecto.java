@@ -16,6 +16,8 @@ import entidades.Usuario;
 import servicios.ServicioCuentaApp;
 import servicios.ServicioDetalleObjetivoProgramado;
 import servicios.ServicioObjetivo;
+import servicios.ServicioDetalleObjetivoPuntual;
+
 
 /**
  *
@@ -258,20 +260,24 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
 
                     if (objetivo.getCantConseObj() >= objetivo.getCantidadObj()) {
 
-                        DetalleObjetivoProgramado detalle = ServicioDetalleObjetivoProgramado.buscarDetallePorObjetivo(
+                        DetalleObjetivoProgramado detalleProg = ServicioDetalleObjetivoProgramado.buscarDetallePorObjetivo(
                                 objetivo.getCodObjetivos());
 
-                        detalle.setFechaInactividadDetprog(LocalDate.now());
+                        detalleProg.setFechaInactividadDetprog(LocalDate.now());
 
-                        detalle.setCantidadFijaDetprog(0.0);
+                        detalleProg.setCantidadFijaDetprog(0.0);
 
-                        ServicioDetalleObjetivoProgramado.actualizarDetalleObjetivoProgramado(detalle);
+                        ServicioDetalleObjetivoProgramado.actualizarDetalleObjetivoProgramado(detalleProg);
                     }
 
                     cuenta.setSaldoCuentas(cuenta.getSaldoCuentas() - cantidadAportada);
 
+
                     ServicioObjetivo.actualizarObjetivo(objetivo);
                     ServicioCuentaApp.actualizarCuentaApp(cuenta);
+                     objetivo.setCantConseObj(restante)
+                    ServicioDetalleObjetivoPuntual.actualizarDetalleObjetivoPuntual(null)
+
 
                     jLSaldoAct.setText(cuenta.getSaldoCuentas().toString());
                     actualizarCantidadRestante();
@@ -337,6 +343,8 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
             Double restante = objetivo.getCantidadObj() - objetivo.getCantConseObj();
 
             jLCantResto.setText(restante.toString());
+
+           
         }
     }
 
