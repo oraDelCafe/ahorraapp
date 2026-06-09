@@ -1,6 +1,7 @@
 package servicios;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import controladores.CuentaAppController;
 import controladores.DetalleObjetivoPuntualController;
@@ -64,5 +65,10 @@ public class ServicioDetalleObjetivoPuntual {
 
     public static void borrarTodosDetallesObjetivoPuntual() {
         detalleController.deleteAll();
+    }
+
+    public static List<DetalleObjetivoPuntual> buscarDetallesPorObjetivo(Integer idObjetivo) {
+
+        return detalleController.buscarDetallesPorObjetivo(idObjetivo);
     }
 }

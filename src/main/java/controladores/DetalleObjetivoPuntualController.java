@@ -140,6 +140,26 @@ public class DetalleObjetivoPuntualController {
         }
     }
 
+    public List<DetalleObjetivoPuntual> buscarDetallesPorObjetivo(Integer idObjetivo) {
+
+        EntityManager em = getEntityManager();
+
+        try {
+
+            return em.createQuery(
+                    "SELECT detalle FROM DetalleObjetivoPuntual detalle "
+                            + "WHERE detalle.codObjetivosDetpunt.codObjetivos = :idObjetivo "
+                            + "ORDER BY detalle.fechaDetpunt DESC",
+                    DetalleObjetivoPuntual.class)
+                    .setParameter("idObjetivo", idObjetivo)
+                    .getResultList();
+
+        } finally {
+
+            em.close();
+        }
+    }
+
     public void close() {
         if (emf != null && emf.isOpen()) {
             emf.close();

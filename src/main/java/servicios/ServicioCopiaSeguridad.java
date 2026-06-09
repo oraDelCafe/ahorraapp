@@ -25,16 +25,10 @@ public class ServicioCopiaSeguridad {
 
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ahorrappVico");
 
-    private static final String RUTA = "copiaSeguridad"
-            + File.separator
-            + "Hacer Copia Seguridad";
+   
     private static final File CARPETA_COPIAS = new File("copiaSeguridad"
             + File.separator
             + "Hacer Copia Seguridad");
-
-    private static final File CARPETA_CARGA = new File("copiaSeguridad"
-            + File.separator
-            + "Cargar Copia Seguridad");
 
     /*
      * hacer copia de seguridad
@@ -123,7 +117,7 @@ public class ServicioCopiaSeguridad {
 
         PrintWriter pw = new PrintWriter(new File(carpeta, "Transferencia.csv"));
 
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         for (Transferencia t : lista) {
 
@@ -196,6 +190,7 @@ public class ServicioCopiaSeguridad {
                 .getResultList();
 
         PrintWriter pw = new PrintWriter(new File(carpeta, "detalleObjetivoPuntual.csv"));
+        SimpleDateFormat formatoFechaHora = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         for (DetalleObjetivoPuntual d : lista) {
 
@@ -204,7 +199,7 @@ public class ServicioCopiaSeguridad {
                             + d.getCodObjetivosDetpunt().getCodObjetivos() + ";"
                             + d.getCodCuentasAppDetpunt().getCodCuentasApp() + ";"
                             + d.getCantidadDetpunt() + ";"
-                            + d.getFechaDetpunt());
+                            + formatoFechaHora.format(d.getFechaDetpunt()));
         }
 
         pw.close();
@@ -285,21 +280,33 @@ public class ServicioCopiaSeguridad {
 
     private static String crearInsert(String tabla, String[] datos) {
 
-        String sql = "insert into " + tabla + " values (";
+    if (tabla.equals("detalleObjetivoPuntual")) {
 
-        for (int i = 0; i < datos.length; i++) {
-
-            sql += valor(datos[i]);
-
-            if (i < datos.length - 1) {
-                sql += ",";
-            }
-        }
-
-        sql += ")";
-
-        return sql;
+        return "insert into detalleObjetivoPuntual "
+                + "(CodDetalleObjetivoPuntual, CodObjetivos_detpunt, CodCuentasApp_detpunt, cantidad_detpunt, fecha_detpunt) "
+                + "values ("
+                + valor(datos[0]) + ","
+                + valor(datos[1]) + ","
+                + valor(datos[2]) + ","
+                + valor(datos[3]) + ","
+                + valor(datos[4]) + ")";
     }
+
+    String sql = "insert into " + tabla + " values (";
+
+    for (int i = 0; i < datos.length; i++) {
+
+        sql += valor(datos[i]);
+
+        if (i < datos.length - 1) {
+            sql += ",";
+        }
+    }
+
+    sql += ")";
+
+    return sql;
+}
 
     private static String valor(String dato) {
 
@@ -313,28 +320,81 @@ public class ServicioCopiaSeguridad {
         }
     }
 
-    public static void restaurarUltimaCopia() {
+    /*
+     * metodo para restaurar la ultima pero vico quería que se seleccionara y no
+     * cogiera la ultima
+     * public static void restaurarUltimaCopia() {
+     * 
+     * EntityManager em = emf.createEntityManager();
+     * EntityTransaction tx = em.getTransaction();
+     * 
+     * try {
+     * 
+     * File carpetaPrincipal = CARPETA_CARGA;
+     * 
+     * File[] copias = carpetaPrincipal.listFiles(File::isDirectory);
+     * 
+     * if (copias == null || copias.length == 0) {
+     * throw new IllegalArgumentException("No hay copias de seguridad");
+     * }
+     * 
+     * File ultima = copias[0];
+     * 
+     * for (File copia : copias) {
+     * 
+     * if (copia.getName().compareTo(ultima.getName()) > 0) {
+     * ultima = copia;
+     * }
+     * }
+     * 
+     * tx.begin();
+     * 
+     * em.createQuery("DELETE FROM DetalleObjetivoPuntual").executeUpdate();
+     * em.createQuery("DELETE FROM DetalleObjetivoProgramado").executeUpdate();
+     * em.createQuery("DELETE FROM Transferencia").executeUpdate();
+     * em.createQuery("DELETE FROM Objetivo").executeUpdate();
+     * em.createQuery("DELETE FROM CuentaApp").executeUpdate();
+     * em.createQuery("DELETE FROM Usuario").executeUpdate();
+     * 
+     * tx.commit();
+     * 
+     * restaurarUsuarios(ultima);
+     * restaurarCuentas(ultima);
+     * restaurarObjetivos(ultima);
+     * restaurarTransferencias(ultima);
+     * restaurarDetallesProgramados(ultima);
+     * restaurarDetallesPuntuales(ultima);
+     * 
+     * } catch (Exception e) {
+     * 
+     * if (tx.isActive()) {
+     * tx.rollback();
+     * }
+     * 
+     * throw new RuntimeException("Error al restaurar copia de seguridad", e);
+     * 
+     * } finally {
+     * 
+     * em.close();
+     * }
+     * }
+     */
+
+    public static void restaurarCopia(String nombreCarpeta) {
 
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
 
         try {
 
-            File carpetaPrincipal = CARPETA_CARGA;
+            File carpeta = new File(
+                    CARPETA_COPIAS,
+                    nombreCarpeta);
 
-            File[] copias = carpetaPrincipal.listFiles(File::isDirectory);
+            if (!carpeta.exists()) {
 
-            if (copias == null || copias.length == 0) {
-                throw new IllegalArgumentException("No hay copias de seguridad");
-            }
-
-            File ultima = copias[0];
-
-            for (File copia : copias) {
-
-                if (copia.getName().compareTo(ultima.getName()) > 0) {
-                    ultima = copia;
-                }
+                throw new IllegalArgumentException(
+                        "La copia seleccionada no existe");
             }
 
             tx.begin();
@@ -345,23 +405,39 @@ public class ServicioCopiaSeguridad {
             em.createQuery("DELETE FROM Objetivo").executeUpdate();
             em.createQuery("DELETE FROM CuentaApp").executeUpdate();
             em.createQuery("DELETE FROM Usuario").executeUpdate();
+                    /* alter deja auto auto_increment = 1 */
+
+            em.createNativeQuery(
+                    "alter table Usuarios auto_increment = 1").executeUpdate();
+            em.createNativeQuery(
+                    "alter table CuentasApp auto_increment = 1").executeUpdate();
+            em.createNativeQuery(
+                    "alter table Objetivos auto_increment = 1").executeUpdate();
+            em.createNativeQuery(
+                    "alter table Transferencia auto_increment = 1").executeUpdate();
+            em.createNativeQuery(
+                    "alter table detalleObjetivoProgramados auto_increment = 1").executeUpdate();
+            em.createNativeQuery(
+                    "alter table detalleObjetivoPuntual auto_increment = 1").executeUpdate();
 
             tx.commit();
 
-            restaurarUsuarios(ultima);
-            restaurarCuentas(ultima);
-            restaurarObjetivos(ultima);
-            restaurarTransferencias(ultima);
-            restaurarDetallesProgramados(ultima);
-            restaurarDetallesPuntuales(ultima);
+            restaurarUsuarios(carpeta);
+            restaurarCuentas(carpeta);
+            restaurarObjetivos(carpeta);
+            restaurarTransferencias(carpeta);
+            restaurarDetallesProgramados(carpeta);
+            restaurarDetallesPuntuales(carpeta);
 
         } catch (Exception e) {
 
             if (tx.isActive()) {
+
                 tx.rollback();
             }
 
-            throw new RuntimeException("Error al restaurar copia de seguridad", e);
+            throw new RuntimeException(
+                    "Error al restaurar copia de seguridad", e);
 
         } finally {
 

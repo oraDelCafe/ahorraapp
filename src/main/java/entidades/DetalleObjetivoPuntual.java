@@ -94,6 +94,7 @@ public class DetalleObjetivoPuntual implements Serializable {
     }
 
     public void setFechaDetpunt(java.util.Date fechaDetpunt) {
+        
         this.fechaDetpunt = fechaDetpunt;
     }
 

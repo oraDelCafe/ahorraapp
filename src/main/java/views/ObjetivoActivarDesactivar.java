@@ -216,7 +216,6 @@ public class ObjetivoActivarDesactivar extends javax.swing.JDialog {
 
                         JOptionPane.showMessageDialog(this,
                                         e.getMessage());
-
                 } catch (Exception e) {
 
                         JOptionPane.showMessageDialog(this,

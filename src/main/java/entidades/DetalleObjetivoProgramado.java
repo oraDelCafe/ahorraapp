@@ -135,7 +135,14 @@ public class DetalleObjetivoProgramado implements Serializable {
     }
 
     public void setFechaInactividadDetprog(LocalDate fechaInactividadDetprog) {
-        this.fechaInactividadDetprog = java.sql.Date.valueOf(fechaInactividadDetprog);
+        if (fechaInactividadDetprog == null) {
+
+            this.fechaInactividadDetprog = null;
+
+        } else {
+
+            this.fechaInactividadDetprog = java.sql.Date.valueOf(fechaInactividadDetprog);
+        }
     }
 
     public Date getFechaFinDetprog() {

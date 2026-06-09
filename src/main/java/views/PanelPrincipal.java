@@ -209,31 +209,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         private void btnCargarCopiaSeguridadActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCargarCopiaSeguridadActionPerformed
                 // TODO add your handling code here:
-                try {
-
-                        int opcion = JOptionPane.showConfirmDialog(this,
-                                        "Se borrarán los datos actuales. ¿Quieres continuar?",
-                                        "Restaurar copia",
-                                        JOptionPane.YES_NO_OPTION);
-
-                        if (opcion == JOptionPane.YES_OPTION) {
-
-                                ServicioCopiaSeguridad.restaurarUltimaCopia();
-
-                                JOptionPane.showMessageDialog(this,
-                                                "Copia restaurada correctamente");
-                        }
-
-                } catch (IllegalArgumentException e) {
-
-                        JOptionPane.showMessageDialog(this,
-                                        e.getMessage());
-
-                } catch (Exception e) {
-
-                        JOptionPane.showMessageDialog(this,
-                                        "Ha ocurrido un error al restaurar la copia");
-                }
+                RestaurarCopia u = new RestaurarCopia(this, true);
+                u.setLocationRelativeTo(null);
+                u.setVisible(true);
         }// GEN-LAST:event_btnCargarCopiaSeguridadActionPerformed
 
         private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtPassActionPerformed
@@ -270,8 +248,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                                 CuentaApp cuentaApp = ServicioCuentaApp.buscarCuentaUsuario(
                                                 usuario.getCodUsuarios());
 
-                                Cuenta u = new Cuenta(
-                                                this, true, usuario, cuentaApp);
+                                Cuenta u = new Cuenta(this, true, usuario, cuentaApp);
 
                                 u.setLocationRelativeTo(null);
                                 u.setVisible(true);
@@ -281,13 +258,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
                 } catch (IllegalArgumentException e) {
 
-                        JOptionPane.showMessageDialog(this,
-                                        e.getMessage());
+                        JOptionPane.showMessageDialog(this, e.getMessage());
 
                 } catch (Exception e) {
 
-                        JOptionPane.showMessageDialog(this,
-                                        "Ha ocurrido un error inesperado PP ");
+                        JOptionPane.showMessageDialog(this, "Ha ocurrido un error inesperado PP ");
                 }
 
         }// GEN-LAST:event_btnAccederActionPerformed
