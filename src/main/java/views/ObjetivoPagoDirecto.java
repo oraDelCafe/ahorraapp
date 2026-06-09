@@ -30,7 +30,7 @@ public class ObjetivoPagoDirecto extends javax.swing.JDialog {
     private CuentaApp cuenta;
     private Usuario usuario;
     private List<Objetivo> listaObjetivos;
-    private List<DetalleObjetivoProgramado> listaObjetivosProgramados;
+
 
     /**
      * Creates new form PagoDirecto
